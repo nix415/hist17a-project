@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revolutionary Artillery: The Koehler Depression Gun</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Koehler Cannon</title>
     <style>
         * {
             margin: 0;
@@ -14,535 +13,217 @@
         }
         
         body {
-            background-color: #f5f1e8;
+            background-color: #f8f5f0;
             color: #333;
             line-height: 1.6;
-            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="%23d4b483" stroke-width="0.5"/></svg>');
-        }
-        
-        .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
         
-        /* Header Styles */
         header {
-            background-color: #2c3e50;
-            color: #f5f1e8;
-            padding: 2rem 0;
-            border-bottom: 5px solid #c0392b;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        .logo {
-            font-size: 2.2rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo i {
-            margin-right: 10px;
-            color: #e74c3c;
-        }
-        
-        .tagline {
-            font-style: italic;
-            margin-top: 5px;
-            color: #ecf0f1;
-            font-size: 1.1rem;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav li {
-            margin-left: 25px;
-        }
-        
-        nav a {
-            color: #f5f1e8;
-            text-decoration: none;
-            font-size: 1.1rem;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        
-        nav a:hover {
-            background-color: #34495e;
-        }
-        
-        /* Main Content */
-        .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1589654313676-d6c8badb6c65?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 4rem 0;
             text-align: center;
-            margin-bottom: 3rem;
+            padding: 30px 0;
+            border-bottom: 3px solid #8b4513;
+            margin-bottom: 30px;
         }
         
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        h1 {
+            color: #2c1810;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
         
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
+        .subtitle {
+            color: #654321;
+            font-style: italic;
+            font-size: 1.2rem;
         }
         
-        .section {
-            margin-bottom: 4rem;
-            padding: 2rem;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            border-left: 5px solid #c0392b;
-        }
-        
-        .section h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #d4b483;
-            padding-bottom: 10px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .section h2 i {
-            margin-right: 10px;
-            color: #c0392b;
-        }
-        
-        /* Cannon Game Section */
-        .game-container {
+        .content {
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 30px;
+            margin-bottom: 40px;
         }
         
-        .cannon-game {
+        .game-section {
             flex: 1;
             min-width: 300px;
-            background-color: #f9f7f2;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 2px solid #d4b483;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
-        .game-info {
+        .info-section {
             flex: 1;
             min-width: 300px;
-            padding: 1.5rem;
-            background-color: #2c3e50;
-            color: white;
-            border-radius: 8px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #8b4513;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #d4b483;
         }
         
         #gameCanvas {
             width: 100%;
-            height: 300px;
-            background-color: #a3d1c6;
+            height: 250px;
+            background: #a3d9c6;
+            border: 3px solid #2c1810;
             border-radius: 8px;
-            border: 3px solid #2c3e50;
+            margin-bottom: 15px;
             display: block;
-            margin-bottom: 1rem;
         }
         
         .controls {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 1rem;
+            background: #f0e6d6;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
         }
         
         .angle-control {
             display: flex;
             align-items: center;
-            gap: 1rem;
-        }
-        
-        .angle-control label {
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        
-        .angle-value {
-            font-weight: bold;
-            color: #c0392b;
-            min-width: 40px;
+            gap: 10px;
+            margin-bottom: 15px;
         }
         
         input[type="range"] {
             flex: 1;
-            height: 10px;
-            -webkit-appearance: none;
+            height: 8px;
             background: #d4b483;
-            border-radius: 5px;
+            border-radius: 4px;
         }
         
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 24px;
-            height: 24px;
-            background: #c0392b;
-            border-radius: 50%;
-            cursor: pointer;
+        .angle-value {
+            font-weight: bold;
+            color: #8b4513;
+            min-width: 40px;
         }
         
         .fire-btn {
-            background-color: #c0392b;
+            width: 100%;
+            padding: 12px;
+            background: #8b4513;
             color: white;
             border: none;
-            padding: 12px 24px;
-            font-size: 1.2rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            border-radius: 6px;
+            font-size: 1.1rem;
             font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
         }
         
         .fire-btn:hover {
-            background-color: #a93226;
+            background: #654321;
         }
         
-        .game-stats {
+        .stats {
             display: flex;
             justify-content: space-between;
-            margin-top: 1rem;
-            padding-top: 1rem;
+            margin-top: 15px;
+            padding-top: 15px;
             border-top: 1px solid #d4b483;
         }
         
-        .stat {
+        .stat-box {
             text-align: center;
         }
         
         .stat-value {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            color: #c0392b;
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-        }
-        
-        /* Historical Content */
-        .historical-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .historical-card {
-            background-color: #f9f7f2;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-top: 4px solid #2c3e50;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-        }
-        
-        .historical-card h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .historical-card h3 i {
-            margin-right: 10px;
-            color: #c0392b;
+            color: #8b4513;
         }
         
         .quote {
+            background: #f0e6d6;
+            padding: 15px;
+            border-left: 4px solid #8b4513;
+            margin: 20px 0;
             font-style: italic;
-            padding: 1.5rem;
-            background-color: #f0e6d6;
-            border-left: 4px solid #d4b483;
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
         }
         
-        .quote-author {
-            text-align: right;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-top: 1rem;
-        }
-        
-        /* Footer */
         footer {
-            background-color: #2c3e50;
-            color: #f5f1e8;
-            padding: 3rem 0 2rem;
-            margin-top: 4rem;
-            border-top: 5px solid #c0392b;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 2rem;
-        }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-        }
-        
-        .footer-section h3 {
-            border-bottom: 2px solid #c0392b;
-            padding-bottom: 10px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #ecf0f1;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #d4b483;
-        }
-        
-        .copyright {
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #34495e;
-            color: #bdc3c7;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #d4b483;
+            color: #666;
             font-size: 0.9rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 1.5rem;
-                justify-content: center;
-            }
-            
-            nav li {
-                margin: 0 10px;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <div class="container header-content">
-            <div class="logo-area">
-                <div class="logo">
-                    <i class="fas fa-cannons"></i>
-                    Revolutionary Artillery
-                </div>
-                <div class="tagline">Exploring 18th Century Military Innovation</div>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#history"><i class="fas fa-history"></i> History</a></li>
-                    <li><a href="#design"><i class="fas fa-cogs"></i> Design</a></li>
-                    <li><a href="#game"><i class="fas fa-gamepad"></i> Cannon Game</a></li>
-                    <li><a href="#significance"><i class="fas fa-landmark"></i> Significance</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h1>Koehler Depression Cannon</h1>
+        <p class="subtitle">An 18th Century Artillery Innovation</p>
     </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>The Koehler Depression Gun: A Revolutionary Advance in Artillery</h1>
-            <p>Explore the innovative 18th century cannon that could fire at extreme angles of depression and elevation, revolutionizing siege warfare during its time.</p>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <div class="container">
-        <!-- History Section -->
-        <section id="history" class="section">
-            <h2><i class="fas fa-scroll"></i> Historical Context</h2>
-            <p>The Koehler Depression Gun, described in George Frank Koehler's 1781 letter, represented a significant advancement in artillery technology during the late 18th century. Unlike conventional cannons limited to 10° depression, this innovative design could fire at angles up to 70° depression and 48° elevation.</p>
+    
+    <div class="content">
+        <section class="game-section">
+            <h2>Interactive Cannon</h2>
+            <canvas id="gameCanvas" width="800" height="250"></canvas>
             
-            <div class="historical-content">
-                <div class="historical-card">
-                    <h3><i class="fas fa-bullseye"></i> Technical Superiority</h3>
-                    <p>Koehler's gun solved a critical problem in siege warfare: the difficulty of aiming downward from elevated positions. Traditional cannons could not depress enough to effectively target enemies positioned below fortifications.</p>
+            <div class="controls">
+                <div class="angle-control">
+                    <span>Angle:</span>
+                    <input type="range" id="angleSlider" min="-70" max="48" value="20">
+                    <span id="angleValue" class="angle-value">20°</span>
                 </div>
-                <div class="historical-card">
-                    <h3><i class="fas fa-shield-alt"></i> Tactical Advantage</h3>
-                    <p>The design allowed gunners to remain under cover while loading, a significant safety improvement. The gun would rotate on a spindle, enabling horizontal loading before returning to its firing position.</p>
-                </div>
-                <div class="historical-card">
-                    <h3><i class="fas fa-trophy"></i> Documented Success</h3>
-                    <p>According to reports from officers at the Royal Battery, this gun demonstrated remarkable accuracy. In one instance, 58 out of 60 shots hit not just the target battery, but a specific traverse within it from 1400 yards away.</p>
-                </div>
+                <button id="fireButton" class="fire-btn">FIRE CANNON</button>
             </div>
             
-            <div class="quote">
-                "A gun upon the depositing carriage can be fired at an angle of 70° at depression, and every intermediate one to point blank and from that to 48° of elevation, whereas a common one can not be fired at greater depression than 10°."
-                <div class="quote-author">- George Frank Koehler, 1781</div>
-            </div>
-        </section>
-
-        <!-- Cannon Game Section -->
-        <section id="game" class="section">
-            <h2><i class="fas fa-gamepad"></i> Interactive Cannon Game</h2>
-            <p>Experience the Koehler gun's unique capabilities firsthand. Adjust the firing angle and see how it affects the trajectory of the cannonball.</p>
-            
-            <div class="game-container">
-                <div class="cannon-game">
-                    <canvas id="gameCanvas" width="800" height="300"></canvas>
-                    <div class="controls">
-                        <div class="angle-control">
-                            <label for="angleSlider">Firing Angle:</label>
-                            <input type="range" id="angleSlider" min="-70" max="48" value="20" step="1">
-                            <span id="angleValue" class="angle-value">20°</span>
-                        </div>
-                        <button id="fireButton" class="fire-btn">
-                            <i class="fas fa-fire"></i> FIRE CANNON!
-                        </button>
-                    </div>
-                    <div class="game-stats">
-                        <div class="stat">
-                            <div class="stat-value" id="shotsFired">0</div>
-                            <div class="stat-label">Shots Fired</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-value" id="successfulHits">0</div>
-                            <div class="stat-label">Successful Hits</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-value" id="accuracyRate">0%</div>
-                            <div class="stat-label">Accuracy Rate</div>
-                        </div>
-                    </div>
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-value" id="shotsFired">0</div>
+                    <div>Shots</div>
                 </div>
-                
-                <div class="game-info">
-                    <h3 style="color: white; margin-bottom: 1rem;">How the Koehler Gun Worked</h3>
-                    <p>The Koehler gun's innovative design featured:</p>
-                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
-                        <li style="margin-bottom: 0.5rem;">A rotating spindle allowing the gun to be loaded horizontally</li>
-                        <li style="margin-bottom: 0.5rem;">A sliding upper bed that absorbed recoil without moving the carriage</li>
-                        <li style="margin-bottom: 0.5rem;">Ability to maintain exact firing position after each shot</li>
-                        <li>Extreme angle capability (-70° to +48°) for targeting enemies at different elevations</li>
-                    </ul>
-                    <p style="margin-top: 1.5rem;"><strong>Game Objective:</strong> Try to hit the target (red fortress) by adjusting the angle. Negative angles fire downward, positive angles fire upward.</p>
+                <div class="stat-box">
+                    <div class="stat-value" id="successfulHits">0</div>
+                    <div>Hits</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="accuracyRate">0%</div>
+                    <div>Accuracy</div>
                 </div>
             </div>
         </section>
-
-        <!-- Design & Significance -->
-        <section id="significance" class="section">
-            <h2><i class="fas fa-archive"></i> Archival Significance</h2>
-            <p>Koehler's letter provides invaluable insights into 18th century military innovation and the practical challenges of siege warfare. The document reveals how engineers addressed specific battlefield problems through mechanical ingenuity.</p>
-            
-            <div class="historical-content">
-                <div class="historical-card">
-                    <h3><i class="fas fa-book-open"></i> Primary Source Value</h3>
-                    <p>This firsthand account demonstrates how artillery officers documented and communicated technical improvements, offering a window into the scientific military culture of the Enlightenment era.</p>
-                </div>
-                <div class="historical-card">
-                    <h3><i class="fas fa-users"></i> Public History Approach</h3>
-                    <p>Interactive presentations like this website help make archival materials accessible to wider audiences, transforming technical historical documents into engaging educational experiences.</p>
-                </div>
-            </div>
+        
+        <section class="info-section">
+            <h2>Historical Background</h2>
+            <p>The Koehler gun, invented in the late 18th century, could fire at extreme angles from -70° depression to +48° elevation. This was revolutionary—ordinary cannons couldn't fire below -10°.</p>
             
             <div class="quote">
-                "This is of very great consequence with regard to the accuracy of the shot, and may perhaps be the reason why the service from that gun was so much more accurate than from any other..."
-                <div class="quote-author">- George Frank Koehler on his gun's precision</div>
+                "A gun upon the depositing carriage can be fired at an angle of 70° at depression... whereas a common one can not be fired at greater depression than 10°."
             </div>
+            
+            <p>The design allowed soldiers to load safely under cover and maintain accuracy. In tests, 58 of 60 shots hit a target 1400 yards away.</p>
+            
+            <h2 style="margin-top: 20px;">How It Worked</h2>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Rotated on a spindle for easy loading</li>
+                <li>Could fire downward from elevated positions</li>
+                <li>Sliding bed absorbed recoil</li>
+                <li>Returned to exact position after firing</li>
+            </ul>
         </section>
     </div>
-
-    <!-- Footer -->
+    
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>About This Project</h3>
-                    <p>This interactive website was created as part of a public history project to make archival materials accessible and engaging for modern audiences.</p>
-                    <p>The content is based on historical documents describing 18th century artillery innovations.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Historical Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Artillery Archives Database</a></li>
-                        <li><a href="#">18th Century Military Technology</a></li>
-                        <li><a href="#">Siege Warfare Tactics</a></li>
-                        <li><a href="#">George Frank Koehler Papers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Educational Use</h3>
-                    <p>This resource is designed for students, educators, and history enthusiasts interested in material culture and military history.</p>
-                    <p>All interactive elements are based on historical specifications from primary sources.</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>Created for Educational Purposes | Based on Historical Archives | Interactive Cannon Simulation</p>
-                <p>© 2023 Revolutionary Artillery History Project</p>
-            </div>
-        </div>
+        <p>Based on historical documents from the 18th century | Interactive educational tool</p>
     </footer>
 
     <script>
-        // Game variables
-        let shotsFired = 0;
-        let successfulHits = 0;
-        let accuracyRate = 0;
-        let animationId = null;
-        let isAnimating = false;
-        
-        // DOM elements
+        // Game setup
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
         const angleSlider = document.getElementById('angleSlider');
@@ -552,42 +233,110 @@
         const successfulHitsElement = document.getElementById('successfulHits');
         const accuracyRateElement = document.getElementById('accuracyRate');
         
-        // Game objects
+        // Game state
+        let shotsFired = 0;
+        let successfulHits = 0;
+        let isFiring = false;
+        
+        // Cannon position
         const cannon = {
             x: 80,
-            y: 250,
-            width: 60,
-            height: 30,
-            angle: 20 * Math.PI / 180, // Convert to radians
-            color: '#2c3e50'
+            y: 180,
+            angle: 20 * Math.PI / 180
         };
         
+        // Target position
         const target = {
             x: 650,
-            y: 200,
-            width: 100,
-            height: 80,
-            color: '#c0392b'
+            y: 150,
+            width: 80,
+            height: 60
         };
         
-        const ground = {
-            y: canvas.height - 50,
-            height: 50,
-            color: '#8d6e63'
-        };
-        
-        // Cannonball animation variables
-        let cannonball = {
+        // Cannonball
+        const ball = {
             x: 0,
             y: 0,
-            radius: 8,
-            color: '#2c3e50',
+            radius: 6,
             vx: 0,
             vy: 0,
-            gravity: 0.2,
-            isFlying: false,
+            flying: false,
             trail: []
         };
+        
+        // Draw everything
+        function drawScene() {
+            // Clear
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw sky
+            ctx.fillStyle = '#a3d9c6';
+            ctx.fillRect(0, 0, canvas.width, 180);
+            
+            // Draw ground
+            ctx.fillStyle = '#8b7355';
+            ctx.fillRect(0, 180, canvas.width, 70);
+            
+            // Draw grass
+            ctx.fillStyle = '#6b8e23';
+            ctx.fillRect(0, 180, canvas.width, 10);
+            
+            // Draw target
+            ctx.fillStyle = '#b22222';
+            ctx.fillRect(target.x, target.y, target.width, target.height);
+            
+            // Draw target details
+            ctx.fillStyle = '#8b0000';
+            for (let i = 0; i < 4; i++) {
+                ctx.fillRect(target.x + i * 20, target.y - 8, 10, 8);
+            }
+            
+            // Draw cannon
+            drawCannon();
+            
+            // Draw cannonball if flying
+            if (ball.flying) {
+                drawCannonball();
+            }
+        }
+        
+        function drawCannon() {
+            ctx.save();
+            ctx.translate(cannon.x, cannon.y);
+            ctx.rotate(cannon.angle);
+            
+            // Cannon barrel
+            ctx.fillStyle = '#2c1810';
+            ctx.fillRect(0, -10, 50, 20);
+            
+            // Cannon wheels
+            ctx.fillStyle = '#654321';
+            ctx.beginPath();
+            ctx.arc(-10, 15, 8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(20, 15, 8, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.restore();
+        }
+        
+        function drawCannonball() {
+            // Draw trail
+            for (let i = 0; i < ball.trail.length; i++) {
+                const point = ball.trail[i];
+                ctx.beginPath();
+                ctx.arc(point.x, point.y, ball.radius * (i / ball.trail.length), 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(44, 24, 16, ${0.3 * (i / ball.trail.length)})`;
+                ctx.fill();
+            }
+            
+            // Draw ball
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+            ctx.fillStyle = '#2c1810';
+            ctx.fill();
+        }
         
         // Update angle display
         angleSlider.addEventListener('input', function() {
@@ -598,292 +347,86 @@
         });
         
         // Fire cannon
-        fireButton.addEventListener('click', fireCannon);
-        
-        // Initialize scene
-        drawScene();
-        
-        // Draw the game scene
-        function drawScene() {
-            // Clear canvas
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        fireButton.addEventListener('click', function() {
+            if (isFiring) return;
             
-            // Draw sky
-            const skyGradient = ctx.createLinearGradient(0, 0, 0, ground.y);
-            skyGradient.addColorStop(0, '#a3d1c6');
-            skyGradient.addColorStop(1, '#7ab6a7');
-            ctx.fillStyle = skyGradient;
-            ctx.fillRect(0, 0, canvas.width, ground.y);
-            
-            // Draw ground
-            ctx.fillStyle = ground.color;
-            ctx.fillRect(0, ground.y, canvas.width, ground.height);
-            
-            // Draw grass on top of ground
-            ctx.fillStyle = '#689f38';
-            ctx.fillRect(0, ground.y, canvas.width, 10);
-            
-            // Draw target (fortress)
-            drawFortress();
-            
-            // Draw cannon
-            drawCannon();
-            
-            // Draw cannonball if flying
-            if (cannonball.isFlying) {
-                drawCannonball();
-            }
-            
-            // Draw angle indicator
-            drawAngleIndicator();
-        }
-        
-        // Draw the cannon
-        function drawCannon() {
-            ctx.save();
-            ctx.translate(cannon.x, cannon.y);
-            ctx.rotate(cannon.angle);
-            
-            // Cannon barrel
-            ctx.fillStyle = cannon.color;
-            ctx.fillRect(0, -cannon.height/2, cannon.width, cannon.height);
-            
-            // Cannon barrel details
-            ctx.fillStyle = '#34495e';
-            ctx.fillRect(cannon.width - 10, -cannon.height/2, 10, cannon.height);
-            
-            // Cannon wheels
-            ctx.fillStyle = '#7f8c8d';
-            ctx.beginPath();
-            ctx.arc(-15, 15, 12, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.beginPath();
-            ctx.arc(25, 15, 12, 0, Math.PI * 2);
-            ctx.fill();
-            
-            ctx.restore();
-            
-            // Cannon base/platform
-            ctx.fillStyle = '#d4b483';
-            ctx.fillRect(cannon.x - 25, cannon.y + 5, 70, 15);
-        }
-        
-        // Draw the target fortress
-        function drawFortress() {
-            // Fortress base
-            ctx.fillStyle = target.color;
-            ctx.fillRect(target.x, target.y, target.width, target.height);
-            
-            // Fortress top (battlements)
-            ctx.fillStyle = '#a93226';
-            for (let i = 0; i < 5; i++) {
-                ctx.fillRect(target.x + i * 20, target.y - 10, 10, 10);
-            }
-            
-            // Fortress flag
-            ctx.fillStyle = '#f1c40f';
-            ctx.fillRect(target.x + target.width - 5, target.y - 30, 5, 30);
-            ctx.fillStyle = '#c0392b';
-            ctx.beginPath();
-            ctx.moveTo(target.x + target.width - 5, target.y - 30);
-            ctx.lineTo(target.x + target.width - 15, target.y - 25);
-            ctx.lineTo(target.x + target.width - 5, target.y - 20);
-            ctx.closePath();
-            ctx.fill();
-            
-            // Fortress windows
-            ctx.fillStyle = '#f5f1e8';
-            ctx.fillRect(target.x + 15, target.y + 15, 10, 15);
-            ctx.fillRect(target.x + 40, target.y + 15, 10, 15);
-            ctx.fillRect(target.x + 65, target.y + 15, 10, 15);
-            
-            // Fortress door
-            ctx.fillStyle = '#8d6e63';
-            ctx.fillRect(target.x + 35, target.y + target.height - 25, 20, 25);
-        }
-        
-        // Draw the cannonball
-        function drawCannonball() {
-            // Draw trail
-            for (let i = 0; i < cannonball.trail.length; i++) {
-                const point = cannonball.trail[i];
-                ctx.beginPath();
-                ctx.arc(point.x, point.y, cannonball.radius * (i / cannonball.trail.length), 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(44, 62, 80, ${0.3 * (i / cannonball.trail.length)})`;
-                ctx.fill();
-            }
-            
-            // Draw cannonball
-            ctx.beginPath();
-            ctx.arc(cannonball.x, cannonball.y, cannonball.radius, 0, Math.PI * 2);
-            ctx.fillStyle = cannonball.color;
-            ctx.fill();
-            
-            // Draw cannonball highlight
-            ctx.beginPath();
-            ctx.arc(cannonball.x - 3, cannonball.y - 3, 3, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
-            ctx.fill();
-        }
-        
-        // Draw angle indicator
-        function drawAngleIndicator() {
-            const angle = parseInt(angleSlider.value);
-            const indicatorLength = 60;
-            
-            ctx.save();
-            ctx.translate(cannon.x, cannon.y);
-            
-            // Draw angle arc
-            ctx.beginPath();
-            if (angle >= 0) {
-                ctx.arc(0, 0, 40, -Math.PI/2, cannon.angle - Math.PI/2, angle < 0);
-            } else {
-                ctx.arc(0, 0, 40, cannon.angle - Math.PI/2, -Math.PI/2, angle < 0);
-            }
-            ctx.strokeStyle = angle >= 0 ? '#27ae60' : '#e74c3c';
-            ctx.lineWidth = 2;
-            ctx.stroke();
-            
-            // Draw angle line
-            ctx.rotate(cannon.angle);
-            ctx.beginPath();
-            ctx.moveTo(0, 0);
-            ctx.lineTo(indicatorLength, 0);
-            ctx.strokeStyle = '#2c3e50';
-            ctx.lineWidth = 2;
-            ctx.stroke();
-            
-            // Draw angle label
-            ctx.rotate(-cannon.angle);
-            ctx.font = 'bold 16px Arial';
-            ctx.fillStyle = '#2c3e50';
-            ctx.textAlign = 'center';
-            ctx.fillText(angle + '°', 50 * Math.cos(cannon.angle), 50 * Math.sin(cannon.angle));
-            
-            ctx.restore();
-        }
-        
-        // Fire the cannon
-        function fireCannon() {
-            if (isAnimating) return;
-            
-            // Update stats
             shotsFired++;
             shotsFiredElement.textContent = shotsFired;
             
-            // Calculate initial velocity based on angle
-            const power = 12;
-            cannonball.vx = Math.cos(cannon.angle) * power;
-            cannonball.vy = Math.sin(cannon.angle) * power;
+            // Set ball position and velocity
+            const power = 10;
+            ball.vx = Math.cos(cannon.angle) * power;
+            ball.vy = Math.sin(cannon.angle) * power;
+            ball.x = cannon.x + Math.cos(cannon.angle) * 50;
+            ball.y = cannon.y + Math.sin(cannon.angle) * 50;
+            ball.flying = true;
+            ball.trail = [];
+            isFiring = true;
             
-            // Set starting position at end of cannon barrel
-            cannonball.x = cannon.x + Math.cos(cannon.angle) * cannon.width;
-            cannonball.y = cannon.y + Math.sin(cannon.angle) * cannon.width;
-            
-            // Reset trail
-            cannonball.trail = [];
-            cannonball.isFlying = true;
-            isAnimating = true;
-            
-            // Start animation
-            animateCannonball();
-        }
+            animate();
+        });
         
-        // Animate cannonball flight
-        function animateCannonball() {
-            // Add current position to trail (limit trail length)
-            cannonball.trail.push({x: cannonball.x, y: cannonball.y});
-            if (cannonball.trail.length > 15) {
-                cannonball.trail.shift();
-            }
+        // Animation loop
+        function animate() {
+            // Add to trail
+            ball.trail.push({x: ball.x, y: ball.y});
+            if (ball.trail.length > 10) ball.trail.shift();
             
             // Update position
-            cannonball.x += cannonball.vx;
-            cannonball.y += cannonball.vy;
-            cannonball.vy += cannonball.gravity;
+            ball.x += ball.vx;
+            ball.y += ball.vy;
+            ball.vy += 0.15; // Gravity
             
-            // Check for collision with ground
-            if (cannonball.y + cannonball.radius >= ground.y) {
-                cannonball.y = ground.y - cannonball.radius;
+            // Check ground hit
+            if (ball.y >= 180 - ball.radius) {
+                ball.y = 180 - ball.radius;
                 endShot(false);
                 return;
             }
             
-            // Check for collision with target
-            if (cannonball.x + cannonball.radius >= target.x &&
-                cannonball.x - cannonball.radius <= target.x + target.width &&
-                cannonball.y + cannonball.radius >= target.y &&
-                cannonball.y - cannonball.radius <= target.y + target.height) {
-                
-                // Successful hit!
+            // Check target hit
+            if (ball.x + ball.radius >= target.x &&
+                ball.x - ball.radius <= target.x + target.width &&
+                ball.y + ball.radius >= target.y &&
+                ball.y - ball.radius <= target.y + target.height) {
                 endShot(true);
                 return;
             }
             
-            // Check if cannonball left the screen
-            if (cannonball.x > canvas.width || cannonball.y > canvas.height) {
+            // Check out of bounds
+            if (ball.x > canvas.width || ball.x < 0 || ball.y > canvas.height) {
                 endShot(false);
                 return;
             }
             
-            // Redraw scene
             drawScene();
-            
-            // Continue animation
-            animationId = requestAnimationFrame(animateCannonball);
+            requestAnimationFrame(animate);
         }
         
-        // End the shot
-        function endShot(isHit) {
-            isAnimating = false;
-            cannonball.isFlying = false;
+        function endShot(hit) {
+            isFiring = false;
+            ball.flying = false;
             
-            if (isHit) {
+            if (hit) {
                 successfulHits++;
                 successfulHitsElement.textContent = successfulHits;
                 
-                // Show hit effect
-                showHitEffect();
+                // Show explosion
+                ctx.fillStyle = '#ff4500';
+                ctx.beginPath();
+                ctx.arc(ball.x, ball.y, 15, 0, Math.PI * 2);
+                ctx.fill();
+                
+                setTimeout(drawScene, 200);
             }
             
             // Update accuracy
-            accuracyRate = Math.round((successfulHits / shotsFired) * 100);
-            accuracyRateElement.textContent = accuracyRate + '%';
-            
-            // Redraw scene
-            drawScene();
+            const accuracy = Math.round((successfulHits / shotsFired) * 100) || 0;
+            accuracyRateElement.textContent = accuracy + '%';
         }
         
-        // Show hit effect on target
-        function showHitEffect() {
-            // Draw explosion
-            ctx.save();
-            ctx.translate(cannonball.x, cannonball.y);
-            
-            // Explosion circles
-            for (let i = 0; i < 5; i++) {
-                const radius = 10 + i * 5;
-                const opacity = 0.8 - i * 0.15;
-                
-                ctx.beginPath();
-                ctx.arc(0, 0, radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(231, 76, 60, ${opacity})`;
-                ctx.fill();
-            }
-            
-            ctx.restore();
-            
-            // Reset after a short delay
-            setTimeout(() => {
-                if (!isAnimating) drawScene();
-            }, 300);
-        }
-        
-        // Handle window resize
-        window.addEventListener('resize', function() {
-            drawScene();
-        });
+        // Initial draw
+        drawScene();
     </script>
 </body>
 </html>
