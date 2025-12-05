@@ -3,326 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Recoiling Empire: A Public History Exhibit</title>
+    <title>The Limits of Empire: Resistance and Ingenuity in Early North America</title>
     <style>
         :root {
-            --primary-color: #A30000; /* Deep Red for Empire/Recoil */
-            --secondary-color: #2F4F4F; /* Dark Slate Gray for Archive/Resistance */
-            --light-bg: #F0F0F0;
-            --dark-text: #1C1C1C;
+            --color-primary: #1a2a3a;
+            --color-secondary: #f0f0f0;
+            --color-accent: #c0392b; /* Historical Red/Maroon */
+            --font-serif: 'Georgia', serif;
+            --font-sans: 'Helvetica Neue', sans-serif;
         }
 
         body {
-            font-family: 'Georgia', serif;
+            font-family: var(--font-sans);
             line-height: 1.6;
-            color: var(--dark-text);
-            background-color: var(--light-bg);
             margin: 0;
             padding: 0;
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
         }
 
         header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 30px 0;
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            padding: 40px 0;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 5px solid var(--color-accent);
         }
 
         header h1 {
-            margin: 0;
+            font-family: var(--font-serif);
             font-size: 2.5em;
+            margin: 0;
             letter-spacing: 2px;
         }
 
-        nav {
-            background-color: var(--secondary-color);
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            display: inline-block;
-            transition: background-color 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #4682B4;
+        header p {
+            font-size: 1.1em;
+            margin-top: 10px;
+            font-style: italic;
         }
 
         .container {
-            width: 80%;
-            margin: 40px auto;
+            width: 85%;
+            max-width: 1100px;
+            margin: 30px auto;
             padding: 20px;
         }
 
         section {
             padding: 40px 0;
-            margin-bottom: 30px;
-            border-bottom: 2px solid var(--secondary-color);
+            border-bottom: 1px dashed var(--color-primary);
         }
 
         section h2 {
-            color: var(--primary-color);
-            border-left: 5px solid var(--secondary-color);
-            padding-left: 15px;
-            font-size: 2em;
+            font-family: var(--font-serif);
+            font-size: 1.8em;
+            color: var(--color-accent);
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 5px;
+            margin-bottom: 20px;
         }
 
-        .exhibit-card {
-            background-color: white;
-            padding: 20px;
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
-        /* --- Mini-Game Styling --- */
-        #game-interface {
-            background-color: #e8e8e8;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+        .card {
+            background-color: #fff;
+            padding: 25px;
+            border: 1px solid #ccc;
+            box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.1);
         }
 
-        #game-controls {
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-start;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .control-group {
-            margin: 10px;
-            padding: 15px;
-            border: 1px dashed var(--secondary-color);
-            border-radius: 6px;
+        .card h3 {
+            color: var(--color-primary);
+            margin-top: 0;
+            font-size: 1.4em;
+            font-family: var(--font-serif);
         }
         
-        button {
-            background-color: var(--secondary-color);
+        /* Cannon Game Section Styling */
+        #cannon-section {
+            background-color: #e6e6e6;
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: none;
+        }
+
+        #game-box {
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        #game-box h2 {
+            color: var(--color-secondary);
+            border-color: var(--color-secondary);
+        }
+
+        #fire-button {
+            background-color: var(--color-accent);
             color: white;
-            border: none;
             padding: 10px 20px;
-            text-transform: uppercase;
+            border: none;
             cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.1s;
-            margin-top: 10px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+            margin-top: 15px;
         }
 
-        button:hover {
-            background-color: #4682B4;
-        }
-
-        button:active {
-            transform: scale(0.98);
+        #fire-button:hover {
+            background-color: #a32c1f;
         }
 
         #game-message {
-            margin-top: 25px;
-            min-height: 50px;
+            margin-top: 20px;
             font-size: 1.1em;
-            font-weight: bold;
-            color: var(--primary-color);
+            min-height: 40px;
         }
 
-        #cannon-visual {
-            font-size: 4em;
-            margin: 30px 0;
-            transition: transform 0.5s ease-in-out;
-            display: inline-block;
-            color: #444;
+        /* Slider Styling */
+        #cannon-slider {
+            -webkit-appearance: none;
+            width: 250px;
+            height: 10px;
+            background: var(--color-secondary);
+            outline: none;
+            opacity: 0.9;
+            transition: opacity .2s;
+            border-radius: 5px;
         }
 
-        /* Animation class for 'recoil' */
-        .recoil-animation {
-            animation: recoil-effect 0.3s ease-in-out 1;
+        #cannon-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            cursor: pointer;
         }
 
-        @keyframes recoil-effect {
-            0% { transform: translateX(0); }
-            50% { transform: translateX(-15px); }
-            100% { transform: translateX(0); }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            font-size: 0.9em;
         }
-
     </style>
 </head>
 <body>
 
     <header>
-        <h1>THE RECOILING EMPIRE</h1>
-        <p>Anti-Colonial Action and the Limits of Imperial Power</p>
+        <h1>The Limits of Empire: Resistance and Ingenuity</h1>
+        <p>A Public History Exploration of Anti-Colonial Action in Early North America (c. 1650–1800)</p>
     </header>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#revolt">Exhibit 1: Revolt</a>
-        <a href="#diplomacy">Exhibit 2: Diplomacy</a>
-        <a href="#freedom">Exhibit 3: Freedom</a>
-        <a href="#game">Koehler's Kinematics (Mini-Game)</a>
-        <a href="#caption">Museum Label (500-Word Essay)</a>
-    </nav>
-
     <div class="container">
-        
-        <section id="home">
-            <h2>The Historical Paradox</h2>
-            <p>The 1785 letter describing the Koehler Depressing Carriage Gun represents the apex of British military-technological prowess—a machine of precise, repeatable destruction. Yet, the history of North America before 1800 demonstrates a profound historical paradox: every attempt to preserve the empire through increased discipline and control ultimately produced its own undoing. This exhibit contrasts the cold mechanics of imperial power with the dynamic, enduring forces of anti-colonial resistance.</p>
-        </section>
 
-        <section id="revolt">
-            <h2>Exhibit 1: The Precision of Revolt (Pueblo Revolt, 1680)</h2>
-            <div class="exhibit-card">
-                <p>The ability of the cannon to hit a single traverse 28 out of 30 times from 1400 yards highlights its devastating accuracy. But how effective is this precision against unified, armed rebellion? The Pueblo Revolt proves that organized Indigenous action could entirely expel a colonial power, rendering the technology of control inert. Revolt, not artillery, defined the limits of Spanish imperial aspiration.</p>
+        <section id="anti-colonialism">
+            <h2>The Spectrum of Anti-Colonial Action</h2>
+            <p>Historians define **anti-colonialism** not as a single act of rebellion, but as a broad spectrum of strategies—from armed revolt to diplomatic negotiation to mere survival—all challenging imperial domination and exposing the limits of colonial power.</p>
+            <p>This project explores how Indigenous and African-descended peoples resisted European empires (Spanish, French, British) in the 17th and 18th centuries.</p>
+
+            <div class="content-grid">
+                <div class="card">
+                    <h3>Revolt: Armed Uprisings</h3>
+                    <p>The most direct challenge to imperial control. The **Pueblo Revolt of 1680** stands as a powerful example: an armed uprising that successfully expelled the Spanish from New Mexico for a period of time. Similarly, the **First Maroon War** in Jamaica, led by the formerly enslaved African woman **Queen Nannie**, fought for and won the freedom and recognition of a distinct Maroon group from the British.</p>
+                </div>
+                <div class="card">
+                    <h3>Diplomacy: Negotiation and Sovereignty</h3>
+                    <p>Resistance could also be negotiated. The **Great Peace of Montreal in 1701** was a moment of intense diplomacy between the French Empire and Indigenous peoples, primarily the Haudenosaunee. This negotiation profoundly reshaped the political relationships in northeastern North America, limiting French imperial power through collective agreement.</p>
+                </div>
+                <div class="card">
+                    <h3>The Enduring Struggle</h3>
+                    <p>These early movements reveal enduring struggles over **land, sovereignty, and freedom**. This resistance continues today, as seen in modern protest movements like "Land Back" and critiques of "racial capitalism," which challenge the inherited structures and memories of empire.</p>
+                </div>
             </div>
         </section>
 
-        <section id="diplomacy">
-            <h2>Exhibit 2: The Diplomacy of Defense (Great Peace of Montreal, 1701)</h2>
-            <div class="exhibit-card">
-                <p>The Koehler gun's innovation was the ability to return to the "exact same direction, and depression it did before firing," ensuring mechanical repeatability. In contrast, the Indigenous nations at the Great Peace of Montreal achieved a non-mechanical, *enduring* repeatability—peace and autonomy through complex, strategic diplomacy that outlasted the effectiveness of French and British cannons. Diplomacy was the superior technology for maintaining sovereignty.</p>
-            </div>
-        </section>
-        
-        <section id="freedom">
-            <h2>Exhibit 3: The Angle of Freedom (First Maroon War, 1739)</h2>
-            <div class="exhibit-card">
-                <p>The cannon's unique ability to fire at a **70° depression** was designed for tactical advantage, such as shooting from high-ground positions or firing upon enemies below a precipice. Ironically, the Maroons in Jamaica used the high ground itself—the Cockpit Country—to establish a refuge that successfully resisted British military campaigns. Their "acts of resistance" forced the British to recognize the limits of their control and grant them treaty freedom.</p>
-            </div>
-        </section>
-
-        <section id="game">
-            <h2>Exhibit 4: Koehler's Kinematics — The 1785 Accuracy Challenge</h2>
-            <p>Explore the unique mechanics of the Koehler cannon—the **Upper Bed B Slides** while the **Under Carriage D does not move**. The target is a tiny traverse at 1400 yards. You must correctly execute the three steps to hit the target, demonstrating the gun's famed precision and efficiency.</p>
-
-            <div id="game-interface">
-                <div id="cannon-visual">◒</div>
-                <div id="game-controls">
-                    <div class="control-group">
-                        <h3>Step 1: Set Angle</h3>
-                        <label for="angle">Set Depression Angle (0° to 70°):</label>
-                        <input type="number" id="angle" min="0" max="70" value="15">°
-                        <p id="angle-status" style="font-weight: normal; color: #666; font-size: 0.9em;">(Normal guns stop at 15° depression)</p>
-                    </div>
-
-                    <div class="control-group">
-                        <h3>Step 2: Load Gun</h3>
-                        <p>Simulate turning the gun on the spindle for loading under cover of the merton.</p>
-                        <button id="load-btn" onclick="loadGun()" disabled>Load (Requires Angle)</button>
-                        <p id="load-status" style="font-weight: normal; color: #666; font-size: 0.9em;">Status: Unloaded</p>
-                    </div>
-
-                    <div class="control-group">
-                        <h3>Step 3: Fire & Recoil</h3>
-                        <p>Witness the unique recoil where the gun returns automatically to the correct angle.</p>
-                        <button id="fire-btn" onclick="fireCannon()" disabled>Fire</button>
-                    </div>
+        <section id="cannon-section">
+            <h2>The Engine of Empire: Precision and Power</h2>
+            <p>The projection of colonial power relied on technological and military superiority. The following document describes an ingenious, highly accurate field piece—a gun on a **depressing carriage**—used during the Siege of Gibraltar (1779–1783).</p>
+            <p class="description">This cannon was unique because it could fire at an extreme **70° depression** and, most importantly, recoil on a fixed slide, allowing for <strong>repeated shots at the same direction and depression with extreme accuracy</strong>. One officer reported 28 of 30 shots hitting a single traverse from a distance of nearly 1400 yards.</p>
+            <div id="game-box">
+                <h3>Mini-Game: Master the Angle of Resistance</h3>
+                <p>Imperial power demands **precision**. To match the reported accuracy of this unique cannon, you must fire a shot from 1400 yards to hit a single traverse. The perfect angle is a low **5° depression**.</p>
+                
+                <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 15px;">
+                    <label for="cannon-slider">Set Angle of Depression (0° to 70°):</label>
+                    <input type="range" id="cannon-slider" min="0" max="70" value="0">
+                    <span id="angle-display">0°</span>
                 </div>
                 
-                <div id="game-message">Start by setting the unique depression angle (70° is the max capability).</div>
-                
-            </div>
-        </section>
-
-        <section id="caption">
-            <h2>Museum Label (500-Word Essay Placeholder)</h2>
-            <div class="exhibit-card" style="height: 300px; background-color: #ffffff;">
-                <p style="font-style: italic;">[This is where your 500-word "caption" essay will go. It will explain the historical significance of the Koehler cannon document and how the three exhibits interpret the lecture's theme of anti-colonial action (Revolt, Diplomacy, and Freedom) as the definitive "recoil" against imperial control.]</p>
+                <button id="fire-button">Fire!</button>
+                <p id="game-message">Aim for 5° for a perfect hit. Use the slider to set your angle.</p>
             </div>
         </section>
 
     </div>
 
+    <footer>
+        <p>&copy; History Course Public History Project | Based on primary sources and lecture material.</p>
+    </footer>
+
     <script>
-        // --- Mini-Game JavaScript Logic ---
-        const TARGET_ANGLE = 70; // Highlighting the unique 70° depression capability
-        let step = 1;
-        const cannonVisual = document.getElementById('cannon-visual');
-        const angleInput = document.getElementById('angle');
-        const loadBtn = document.getElementById('load-btn');
-        const fireBtn = document.getElementById('fire-btn');
-        const gameMessage = document.getElementById('game-message');
-        const angleStatus = document.getElementById('angle-status');
-        const loadStatus = document.getElementById('load-status');
+        document.addEventListener('DOMContentLoaded', () => {
+            const fireButton = document.getElementById('fire-button');
+            const angleSlider = document.getElementById('cannon-slider');
+            const angleDisplay = document.getElementById('angle-display');
+            const messageArea = document.getElementById('game-message');
+            const CORRECT_ANGLE = 5; // Target angle
 
-        angleInput.addEventListener('input', () => {
-            if (step === 1) {
-                const angle = parseInt(angleInput.value);
+            // Update the display value whenever the slider moves
+            angleSlider.addEventListener('input', () => {
+                angleDisplay.textContent = angleSlider.value + '°';
+            });
+
+            fireButton.addEventListener('click', () => {
+                // The slider value is always a valid integer between min (0) and max (70)
+                const inputAngle = parseInt(angleSlider.value);
                 
-                // Update button and message based on the input
-                if (angle === TARGET_ANGLE) {
-                    gameMessage.innerHTML = `Angle set to **${angle}° Depression!** This highlights the gun's unique capability (max 70°). Proceed to Step 2.`;
-                    angleStatus.innerHTML = "Status: Target Angle Set";
-                    loadBtn.disabled = false;
-                    fireBtn.disabled = true;
-                } else if (angle > 70) {
-                    gameMessage.innerHTML = `Error: Angle cannot exceed 70°.`;
-                    angleStatus.innerHTML = "(Normal guns stop at 15° depression)";
-                    loadBtn.disabled = true;
+                // Clear previous message color
+                messageArea.style.color = 'var(--color-secondary)';
+                
+                if (inputAngle === CORRECT_ANGLE) {
+                    messageArea.innerHTML = '<strong>PERFECT HIT!</strong> You have achieved the incredible precision of the depressing carriage gun, hitting the traverse from 1400 yards!';
+                    messageArea.style.color = 'lime';
+                } else if (inputAngle < CORRECT_ANGLE) {
+                    const difference = CORRECT_ANGLE - inputAngle;
+                    messageArea.innerHTML = `<strong>MISSED!</strong> Your shot was too low by ${difference}°. The angle of depression must be greater.`;
+                    messageArea.style.color = 'orange';
                 } else {
-                    gameMessage.innerHTML = `Angle set to ${angle}° (Try for the unique max capability of 70°).`;
-                    angleStatus.innerHTML = "(Normal guns stop at 15° depression)";
-                    loadBtn.disabled = true;
+                    const difference = inputAngle - CORRECT_ANGLE;
+                    messageArea.innerHTML = `<strong>MISSED!</strong> Your shot was too high by ${difference}°. The angle of depression must be lesser.`;
+                    messageArea.style.color = 'orange';
                 }
-            }
+            });
         });
-
-        function loadGun() {
-            if (step === 1 && parseInt(angleInput.value) === TARGET_ANGLE) {
-                // Step 2: Simulate turning gun on spindle
-                step = 2;
-                gameMessage.innerHTML = 'Gun turned on the spindle. **Loader is under cover!** (Difficulty of ramming shot upwards is avoided). Proceed to Step 3.';
-                loadStatus.innerHTML = "Status: Loaded & Covered";
-                loadBtn.disabled = true;
-                fireBtn.disabled = false;
-            }
-        }
-
-        function fireCannon() {
-            if (step === 2) {
-                step = 3;
-                fireBtn.disabled = true;
-                
-                // Visually simulate the unique recoil mechanism
-                cannonVisual.classList.add('recoil-animation');
-                
-                // Game results after recoil animation
-                setTimeout(() => {
-                    cannonVisual.classList.remove('recoil-animation');
-                    
-                    // The core historical point of the game is demonstrating the recoil effect
-                    const correctRecoilMessage = `**SUCCESS!** The Upper Bed B slid, but the Under Carriage D did not move. The gun returned to the exact same direction and depression! This precision is how Capt. Cuppege hit the Traverse 28/30 times!`;
-                    
-                    gameMessage.innerHTML = correctRecoilMessage;
-                    
-                    // Reset game
-                    setTimeout(() => {
-                        step = 1;
-                        angleInput.value = 15;
-                        loadBtn.disabled = true;
-                        fireBtn.disabled = true;
-                        angleStatus.innerHTML = "(Normal guns stop at 15° depression)";
-                        loadStatus.innerHTML = "Status: Unloaded";
-                        gameMessage.innerHTML = 'Reset. Try to hit the target again by setting the unique depression angle (70°).';
-                    }, 5000);
-
-                }, 400); // Animation time
-            }
-        }
-
-        // Initialize state
-        window.onload = () => {
-            angleInput.value = 15;
-        };
-
     </script>
-
 </body>
 </html>
