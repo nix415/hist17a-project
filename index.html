@@ -98,13 +98,105 @@
             color: var(--color-secondary);
             padding: 30px;
             border-radius: 8px;
-            max-width: 600px;
+            max-width: 650px;
             margin: 20px auto;
         }
 
-        #game-box h2 {
+        #game-box h3 {
             color: var(--color-secondary);
-            border-color: var(--color-secondary);
+            font-size: 1.6em;
+            margin-bottom: 5px;
+        }
+
+        /* --- Mini-Game Components --- */
+        #cannon-visualization {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            margin: 20px auto 30px;
+            border-bottom: 1px solid #444; /* Ground line */
+        }
+
+        #cannon-base {
+            position: absolute;
+            bottom: 1px;
+            left: 50px;
+            width: 80px;
+            height: 15px;
+            background-color: #7f8c8d; /* Grey carriage */
+        }
+
+        #cannon-barrel {
+            position: absolute;
+            bottom: 16px;
+            left: 55px;
+            width: 70px;
+            height: 15px;
+            background-color: #34495e; /* Darker barrel */
+            transform-origin: 5px 100%; /* Pivot point: bottom-left */
+            transition: transform 0.3s ease-out; /* For adjusting angle visual */
+            border-radius: 3px;
+        }
+
+        #projectile {
+            position: absolute;
+            bottom: 25px;
+            left: 120px; /* Start right next to the barrel */
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--color-accent); /* Red ball */
+            visibility: hidden;
+            z-index: 10;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fire-arc {
+            0% { transform: translate(0, 0); opacity: 1; }
+            100% { 
+                /* Trajectory for a low shot */
+                transform: translate(500px, -5px); 
+                opacity: 0;
+            }
+        }
+        
+        @keyframes recoil {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-15px); } /* Move back */
+            50% { transform: translateX(5px); } /* Settle forward */
+        }
+        
+        .firing #cannon-barrel {
+            animation: recoil 0.5s ease-out;
+        }
+        
+        .firing #projectile {
+            visibility: visible;
+            /* Use a simple arc animation that resets on completion */
+            animation: fire-arc 1.5s linear forwards;
+        }
+
+        /* Slider styling for ease of use */
+        input[type="range"] {
+            width: 90%;
+            margin: 10px 0;
+            -webkit-appearance: none;
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            outline: none;
+            opacity: 0.8;
+            transition: opacity .2s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            cursor: pointer;
         }
 
         #fire-button {
@@ -116,6 +208,7 @@
             font-size: 1em;
             transition: background-color 0.3s;
             margin-top: 15px;
+            font-weight: bold;
         }
 
         #fire-button:hover {
@@ -123,40 +216,10 @@
         }
 
         #game-message {
-            margin-top: 20px;
-            font-size: 1.1em;
+            margin-top: 25px;
+            font-size: 1.2em;
             min-height: 40px;
-        }
-
-        /* Slider Styling */
-        #cannon-slider {
-            -webkit-appearance: none;
-            width: 250px;
-            height: 10px;
-            background: var(--color-secondary);
-            outline: none;
-            opacity: 0.9;
-            transition: opacity .2s;
-            border-radius: 5px;
-        }
-
-        #cannon-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--color-accent);
-            cursor: pointer;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background-color: var(--color-primary);
-            color: var(--color-secondary);
-            font-size: 0.9em;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -192,63 +255,9 @@
 
         <section id="cannon-section">
             <h2>The Engine of Empire: Precision and Power</h2>
-            <p>The projection of colonial power relied on technological and military superiority. The following document describes an ingenious, highly accurate field piece—a gun on a **depressing carriage**—used during the Siege of Gibraltar (1779–1783).</p>
-            <p class="description">This cannon was unique because it could fire at an extreme **70° depression** and, most importantly, recoil on a fixed slide, allowing for <strong>repeated shots at the same direction and depression with extreme accuracy</strong>. One officer reported 28 of 30 shots hitting a single traverse from a distance of nearly 1400 yards.</p>
+            <p>The projection of colonial power relied on technological and military superiority. The document describes an ingenious, highly accurate field piece—a gun on a **depressing carriage**—used during the Siege of Gibraltar (1779–1783), capable of firing at an extreme **70° depression**.</p>
+            <p class="description">Its unique fixed recoil mechanism allowed for **repeated shots at the same depression with extreme accuracy**, with one officer reporting 28 of 30 shots hitting a single traverse from a distance of nearly 1400 yards.</p>
+            
             <div id="game-box">
-                <h3>Mini-Game: Master the Angle of Resistance</h3>
-                <p>Imperial power demands **precision**. To match the reported accuracy of this unique cannon, you must fire a shot from 1400 yards to hit a single traverse. The perfect angle is a low **5° depression**.</p>
-                
-                <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 15px;">
-                    <label for="cannon-slider">Set Angle of Depression (0° to 70°):</label>
-                    <input type="range" id="cannon-slider" min="0" max="70" value="0">
-                    <span id="angle-display">0°</span>
-                </div>
-                
-                <button id="fire-button">Fire!</button>
-                <p id="game-message">Aim for 5° for a perfect hit. Use the slider to set your angle.</p>
-            </div>
-        </section>
-
-    </div>
-
-    <footer>
-        <p>&copy; History Course Public History Project | Based on primary sources and lecture material.</p>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const fireButton = document.getElementById('fire-button');
-            const angleSlider = document.getElementById('cannon-slider');
-            const angleDisplay = document.getElementById('angle-display');
-            const messageArea = document.getElementById('game-message');
-            const CORRECT_ANGLE = 5; // Target angle
-
-            // Update the display value whenever the slider moves
-            angleSlider.addEventListener('input', () => {
-                angleDisplay.textContent = angleSlider.value + '°';
-            });
-
-            fireButton.addEventListener('click', () => {
-                // The slider value is always a valid integer between min (0) and max (70)
-                const inputAngle = parseInt(angleSlider.value);
-                
-                // Clear previous message color
-                messageArea.style.color = 'var(--color-secondary)';
-                
-                if (inputAngle === CORRECT_ANGLE) {
-                    messageArea.innerHTML = '<strong>PERFECT HIT!</strong> You have achieved the incredible precision of the depressing carriage gun, hitting the traverse from 1400 yards!';
-                    messageArea.style.color = 'lime';
-                } else if (inputAngle < CORRECT_ANGLE) {
-                    const difference = CORRECT_ANGLE - inputAngle;
-                    messageArea.innerHTML = `<strong>MISSED!</strong> Your shot was too low by ${difference}°. The angle of depression must be greater.`;
-                    messageArea.style.color = 'orange';
-                } else {
-                    const difference = inputAngle - CORRECT_ANGLE;
-                    messageArea.innerHTML = `<strong>MISSED!</strong> Your shot was too high by ${difference}°. The angle of depression must be lesser.`;
-                    messageArea.style.color = 'orange';
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                <h3>Mini-Game: Master the Angle of Precision</h3>
+                <p>Imperial power demands **precision**. To match the reported accuracy of this unique cannon, you must find the angle that perfectly hits a traverse 1400 yards away. The
