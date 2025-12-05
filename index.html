@@ -3,271 +3,751 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Irony of Empire: Koehler's Cannon and the Limits of Control</title>
+    <title>Revolutionary Artillery: Koehler's Depression Carriage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* General Styles */
-        body {
-            font-family: 'Times New Roman', serif;
-            line-height: 1.6;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f7f4e9; /* Light parchment color */
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            background-color: #f5f1e8;
             color: #333;
+            line-height: 1.6;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4a76a' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
+        
         header {
-            background-color: #5d4037; /* Deep brown */
-            color: #f7f4e9;
-            padding: 20px 0;
+            background: linear-gradient(to right, #3a2c1c, #5a4a32);
+            color: #f5f1e8;
+            padding: 2rem 1rem;
             text-align: center;
-            border-bottom: 5px solid #a1887f;
+            border-bottom: 5px solid #d4a76a;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border: 1px solid #d2c8ae;
-        }
-        h2 {
-            color: #795548; /* Medium brown */
-            border-bottom: 2px solid #a1887f;
-            padding-bottom: 5px;
-            margin-top: 30px;
-        }
-        p, ul {
-            margin-bottom: 15px;
-        }
-        .citation {
-            font-size: 0.8em;
-            color: #8d6e63;
+        
+        .subtitle {
+            font-size: 1.2rem;
             font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #d4a76a;
         }
-
-        /* Cannon Game Section */
-        #cannon-game {
-            background-color: #eee8d5;
-            padding: 20px;
-            margin-top: 40px;
-            border: 1px dashed #795548;
-            text-align: center;
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
-        #cannon-display {
+        
+        .nav-btn {
+            background-color: #d4a76a;
+            color: #3a2c1c;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-btn:hover {
+            background-color: #c5954d;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .section {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #d4a76a;
+        }
+        
+        h2 {
+            color: #3a2c1c;
+            border-bottom: 2px solid #d4a76a;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: #5a4a32;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+        }
+        
+        .quote {
+            font-style: italic;
+            padding: 1.5rem;
+            background-color: #f9f5eb;
+            border-left: 4px solid #d4a76a;
+            margin: 1.5rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .quote-source {
+            text-align: right;
+            font-weight: bold;
+            color: #5a4a32;
+            margin-top: 0.5rem;
+        }
+        
+        .document-image {
+            width: 100%;
+            max-width: 500px;
+            border: 8px solid #3a2c1c;
+            border-radius: 5px;
+            margin: 1.5rem auto;
+            display: block;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .feature {
+            background-color: #f9f5eb;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 4px solid #d4a76a;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature i {
+            color: #d4a76a;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Game Container */
+        .game-container {
+            background-color: #3a2c1c;
+            border-radius: 10px;
+            padding: 2rem;
+            color: #f5f1e8;
+            margin-top: 2rem;
+        }
+        
+        .game-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .cannon-setup {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
             width: 100%;
             height: 300px;
             position: relative;
-            overflow: hidden;
-            background-color: #cfd8dc;
-            margin-bottom: 20px;
-            border: 2px solid #333;
+            margin-bottom: 2rem;
         }
-        #cannon {
-            position: absolute;
-            bottom: 30px;
-            left: 50px;
-            width: 100px;
-            height: 30px;
-            background-color: #4a4a4a;
-            transform-origin: 10px 15px;
-            transition: transform 0.5s;
+        
+        .cannon-base {
+            width: 200px;
+            height: 40px;
+            background-color: #5a4a32;
+            border-radius: 5px;
+            position: relative;
         }
-        #cannon::after {
-            content: '';
+        
+        .cannon {
+            width: 180px;
+            height: 40px;
+            background-color: #7a6a52;
+            border-radius: 20px;
             position: absolute;
-            left: -10px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 30px;
+            bottom: 40px;
+            left: 10px;
+            transform-origin: right center;
+            transition: transform 0.5s ease;
+        }
+        
+        .cannon-wheel {
+            width: 50px;
+            height: 50px;
+            background-color: #3a2c1c;
             border-radius: 50%;
-            background-color: #4a4a4a;
+            position: absolute;
+            bottom: -10px;
         }
-        #fire-ball {
+        
+        .wheel-left {
+            left: 20px;
+        }
+        
+        .wheel-right {
+            right: 20px;
+        }
+        
+        .target-area {
+            width: 100%;
+            height: 150px;
+            background-color: #2a4a3c;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+        
+        .target {
+            width: 60px;
+            height: 60px;
+            background-color: #c44;
+            border-radius: 50%;
+            position: absolute;
+            top: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        .control-btn {
+            background-color: #d4a76a;
+            color: #3a2c1c;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .control-btn:hover {
+            background-color: #c5954d;
+            transform: scale(1.05);
+        }
+        
+        .game-stats {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #d4a76a;
+        }
+        
+        .shot-trail {
             position: absolute;
             width: 10px;
             height: 10px;
+            background-color: #ffcc00;
             border-radius: 50%;
-            background-color: orange;
-            display: none;
-            z-index: 10;
+            pointer-events: none;
+            opacity: 0;
         }
-        #angle-info {
-            font-weight: bold;
-            margin-top: 10px;
-            color: #333;
-        }
-        /* Style for the cannon's base/carriage */
-        #carriage {
+        
+        .hit-effect {
             position: absolute;
-            bottom: 0;
-            left: 50px;
-            width: 100px;
-            height: 50px;
-            background-color: #795548;
-            border-radius: 5px 5px 0 0;
+            width: 80px;
+            height: 80px;
+            background-color: #ff9900;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            transform: scale(0);
+        }
+        
+        .historical-context {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .context-card {
+            background-color: #f9f5eb;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            background-color: #3a2c1c;
+            color: #f5f1e8;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 5px solid #d4a76a;
+        }
+        
+        .archive-note {
+            background-color: #e8f4f8;
+            border-left: 4px solid #4a90a4;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .cannon-setup {
+                height: 250px;
+            }
+            
+            .features, .historical-context {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>The Irony of Empire: Technology, Power, and the Limits of Control</h1>
-        <p>A Public History Exploration of 18th-Century North America</p>
+        <h1>Revolutionary Artillery</h1>
+        <div class="subtitle">Koehler's Depression Carriage & 18th Century Military Innovation</div>
+        
+        <div class="nav-container">
+            <button class="nav-btn" onclick="showSection('overview')">Overview</button>
+            <button class="nav-btn" onclick="showSection('document')">Original Document</button>
+            <button class="nav-btn" onclick="showSection('innovation')">Innovation</button>
+            <button class="nav-btn" onclick="showSection('game')">Cannon Game</button>
+            <button class="nav-btn" onclick="showSection('context')">Historical Context</button>
+        </div>
     </header>
-
+    
     <div class="container">
-        <section id="archival-source">
-            <h2>Our Archival Find: Koehler's Depressing Carriage Cannon (1785)</h2>
-            <p>This rough sketch and description, written by George Fredk. [cite_start]Koehler in 1785, details a revolutionary piece of military technology[cite: 14637, 14650, 14652]. Koehler's design was a tool of imperial power, engineered for superior performance and safety, reflecting the advanced, often ruthless, nature of colonial-era military dominance.</p>
-
-            <h3>Key Features and Significance:</h3>
-            <ul>
-                [cite_start]<li><strong>Unprecedented Range of Angles:</strong> The cannon could be fired at a depression (downward angle) of up to $70^\circ$ and an elevation of $45^\circ$, greatly surpassing the $15^\circ$ maximum depression of a common cannon[cite: 14638].</li>
-                [cite_start]<li><strong>Safety and Speed:</strong> It was loaded with "the greatest facility" by rotating the gun horizontally on a spindle, allowing the shot to roll in and keeping the loader "under cover" and safe from enemy fire[cite: 14639, 14640].</li>
-                [cite_start]<li><strong>Superior Accuracy:</strong> The design automatically returned the gun to its initial position after firing and recoiled on a slide, which ensured that the "shot quite the piece" in the same line every time, even at depression[cite: 14642, 14645].</li>
-                <li><strong>Proven Success:</strong> The accuracy of this cannon was demonstrated during the Siege of Gibraltar. [cite_start]One instance notes Captain Cuppege hitting a single traverse (a section of a battery) 28 out of 30 times from nearly 1400 yards distant[cite: 14646].</li>
-            </ul>
-        </section>
-
-        <section id="historical-context">
-            <h2>The Historical Context: Imperialism and Anti-Colonial Action</h2>
-            <p>Our history course examines the 17th and 18th centuries in North America, a time defined by contested imperial powers. While Koehler's cannon represents the cutting edge of imperial military technology, the lecture transcript reminds us that imperial power was constantly being challenged.</p>
-
-            [cite_start]<p>The course defines anti-colonialism not as a single act of rebellion, but as a <strong>spectrum of strategies</strong>[cite: 8095]. [cite_start]These acts challenged imperial domination and served to expose "the limits of colonial power"[cite: 8101].</p>
+        <!-- Overview Section -->
+        <section id="overview" class="section">
+            <h2><i class="fas fa-cannon"></i> Artillery Revolution in the 18th Century</h2>
+            <p>In the late 18th century, military technology underwent significant transformation. Among the most important innovations was the development of specialized artillery carriages that dramatically improved the effectiveness of siege warfare. One such invention was George Koehler's "depression carriage," described in a 1794 letter that provides remarkable insight into the practical challenges and engineering solutions of the era.</p>
             
-            <h3>The Spectrum of Resistance:</h3>
-            <ul>
-                [cite_start]<li><strong>Revolt:</strong> Armed uprisings, such as the Pueblo Revolt of 1680, which temporarily expelled the Spanish from New Mexico[cite: 8069].</li>
-                [cite_start]<li><strong>Diplomacy & Negotiation:</strong> Moments of negotiated peace, like the Great Peace of Montreal in 1701, which reshaped the relationship between French and indigenous peoples[cite: 8075].</li>
-                [cite_start]<li><strong>Survival:</strong> Fights for freedom and sovereignty, exemplified by Queen Nannie leading the formerly enslaved Africans in the First Maroon War in Jamaica[cite: 8080, 8097].</li>
-            </ul>
-        </section>
-
-        <section id="the-paradox">
-            <h2>The Paradox of Control</h2>
-            <p>The Koehler cannon, a marvel of control, precision, and efficiency, highlights the sheer technological power the British Empire wielded. [cite_start]Yet, as our lecture stresses, every attempt to impose imperial control led to increased acts of resistance, ultimately creating a historical paradox where efforts to preserve empire led to its undoing[cite: 8101]. [cite_start]The perfection of a weapon designed for domination stands in stark contrast to the enduring struggles for land, sovereignty, and freedom taking place across North America and the Caribbean at the same time[cite: 8119].</p>
-        </section>
-
-        <section id="cannon-game">
-            <h2>Interactive Model: The Koehler Cannon's Unique Angle</h2>
-            <p>This demonstration highlights the key innovation of the depressing carriage: the ability to aim sharply downwards (depression). [cite_start]The cannon could be fired at a depression of up to $70^\circ$, a critical advantage when firing from a high position like a precipice or fort wall[cite: 14638, 14640].</p>
-
-            <div id="cannon-display">
-                <div id="carriage"></div>
-                <div id="cannon"></div>
-                <div id="fire-ball"></div>
+            <div class="quote">
+                "A gun upon the depositing carriage can be fired at an angle of 70° at depression, and every intermediate one to point blank and from that to 48° of elevation, whereas a common one can not be fired at greater depression than 10°."
+                <div class="quote-source">- George Koehler, 1794</div>
             </div>
-
-            <label for="angle-slider">Set Angle (Elevation to Depression):</label>
-            <input type="range" id="angle-slider" min="-70" max="45" value="0" step="1">
-            <span id="angle-value">0</span><span id="angle-type">° (Point Blank)</span>
-
-            <button onclick="fireCannon()">Fire Cannon!</button>
-            [cite_start]<div id="angle-info">The design allows an incredible range: from $45^\circ$ Elevation to $70^\circ$ Depression[cite: 14638]!</div>
+            
+            <p>This website explores Koehler's innovation within the broader context of 18th-century military technology. Through interactive elements and historical analysis, we examine how this engineering solution addressed practical battlefield challenges and influenced artillery design in the age of black powder warfare.</p>
+            
+            <div class="archive-note">
+                <h3><i class="fas fa-archive"></i> Archival Discovery</h3>
+                <p>This project is based on analysis of original archival documents, including Koehler's 1794 letter describing his depression carriage. Working with primary sources allows historians to understand not just the technological specifications, but also the practical concerns and tactical considerations that drove innovation in this period.</p>
+            </div>
+        </section>
+        
+        <!-- Document Section -->
+        <section id="document" class="section hidden">
+            <h2><i class="fas fa-scroll"></i> The Original Document</h2>
+            <p>The 1794 letter from George Koehler provides a detailed technical description of his depression carriage invention. This primary source reveals both the engineering specifications and the practical advantages that made this design superior to conventional artillery of the period.</p>
+            
+            <div class="quote">
+                "It is loaded with the greatest facility by turning it round upon the spindle A which one man can do with one hand by which means the Gun lays horizontally across the carriage, and the shot will roll in of itself and at the same time the man who loads it is under cover of the marion."
+                <div class="quote-source">- George Koehler's description of the loading mechanism</div>
+            </div>
+            
+            <p>Key elements described in the document:</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-angles-down"></i>
+                    <h3>Enhanced Depression</h3>
+                    <p>The carriage allowed firing at angles up to 70° depression, compared to just 10° for conventional guns. This enabled firing down steep inclines during sieges.</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-rotate"></i>
+                    <h3>Rotating Mechanism</h3>
+                    <p>The gun could be easily rotated on a spindle for loading, then returned to exactly the same firing position without needing to be re-aimed.</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-shield"></i>
+                    <h3>Gunner Protection</h3>
+                    <p>The design allowed gunners to load while under cover, addressing a critical vulnerability in conventional artillery operation.</p>
+                </div>
+            </div>
+            
+            <div class="quote">
+                "By this turning round, the difficulty of heaving a 54 pound shot upwards, and standing upon the edge of a precipice exposed to the fire of the enemy and danger of failing is avoided."
+                <div class="quote-source">- Koehler on safety improvements</div>
+            </div>
+            
+            <p>The document not only describes technical specifications but also includes performance data from field tests, noting remarkable accuracy achieved during engagements.</p>
+        </section>
+        
+        <!-- Innovation Section -->
+        <section id="innovation" class="section hidden">
+            <h2><i class="fas fa-lightbulb"></i> Technological Innovation</h2>
+            <p>Koehler's depression carriage addressed several critical limitations of 18th-century artillery, representing a significant advancement in siege warfare technology.</p>
+            
+            <h3>Key Innovations:</h3>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Precision Maintaining</h3>
+                    <p>After firing and recoil, the gun returned to its exact previous position. Koehler noted that "30 pounds have been fired without changing the direction of the Gunmen," meaning the weapon didn't need re-aiming between shots.</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-weight-hanging"></i>
+                    <h3>Loading Mechanism</h3>
+                    <p>The rotating design allowed a single gunner to load heavy 54-pound shot with one hand while under cover - a dramatic improvement over conventional methods that required multiple exposed crew members.</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-mountain"></i>
+                    <h3>Topographical Advantage</h3>
+                    <p>By enabling firing at extreme depression angles, the carriage allowed batteries to be placed on high ground with plunging fire capability, revolutionizing siege tactics against fortifications.</p>
+                </div>
+            </div>
+            
+            <div class="quote">
+                "This is of very great consequence with regard to the accuracy of the shot, and may perhaps be the reason why the service from that gun was so much more accurate than from any other Gunmen, as appears from the report of all the Officers who commanded at the Royal Battery."
+                <div class="quote-source">- Koehler on the accuracy advantage</div>
+            </div>
+            
+            <p>The depression carriage represents a fascinating case study in how practical battlefield challenges drove technological innovation in the 18th century. By examining such artifacts, historians gain insight into the interplay between engineering, tactics, and the material realities of early modern warfare.</p>
+        </section>
+        
+        <!-- Game Section -->
+        <section id="game" class="section hidden">
+            <h2><i class="fas fa-gamepad"></i> Cannon Accuracy Challenge</h2>
+            <p>Try your hand at operating Koehler's depression carriage! Adjust the angle to hit the target while accounting for the unique capabilities of this innovative artillery piece.</p>
+            
+            <div class="game-container">
+                <div class="game-area">
+                    <div class="cannon-setup">
+                        <div class="cannon-base">
+                            <div class="cannon-wheel wheel-left"></div>
+                            <div class="cannon-wheel wheel-right"></div>
+                            <div id="cannon" class="cannon" style="transform: rotate(0deg);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="target-area">
+                        <div id="target" class="target">TARGET</div>
+                    </div>
+                    
+                    <div class="controls">
+                        <button class="control-btn" onclick="adjustCannon(-5)"><i class="fas fa-angle-down"></i> Increase Depression</button>
+                        <button class="control-btn" onclick="adjustCannon(5)"><i class="fas fa-angle-up"></i> Increase Elevation</button>
+                        <button class="control-btn" onclick="fireCannon()"><i class="fas fa-fire"></i> Fire Cannon</button>
+                        <button class="control-btn" onclick="resetGame()"><i class="fas fa-redo"></i> Reset Game</button>
+                    </div>
+                    
+                    <div class="game-stats">
+                        <div class="stat">
+                            <div class="stat-label">Angle</div>
+                            <div id="angle-value" class="stat-value">0°</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-label">Shots Fired</div>
+                            <div id="shots-value" class="stat-value">0</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-label">Targets Hit</div>
+                            <div id="hits-value" class="stat-value">0</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-label">Accuracy</div>
+                            <div id="accuracy-value" class="stat-value">0%</div>
+                        </div>
+                    </div>
+                    
+                    <div id="game-message" style="color: #d4a76a; font-weight: bold; margin-top: 1rem; min-height: 24px;"></div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+                <h3>Historical Note on Artillery Accuracy</h3>
+                <p>Koehler emphasized the exceptional accuracy of his depression carriage, noting that in one engagement, "of 30 pounds from this gun 58 of the shot went not only into the battery, but into one Traverse in the Centre of the Mill Battery from the Royal Battery which is near 1400 yas Distant." This level of precision was remarkable for 18th-century artillery and demonstrated the effectiveness of his design.</p>
+            </div>
+        </section>
+        
+        <!-- Historical Context Section -->
+        <section id="context" class="section hidden">
+            <h2><i class="fas fa-landmark"></i> Historical Context</h2>
+            <p>Koehler's innovation emerged during a period of rapid evolution in military technology and siege warfare tactics in the late 18th century.</p>
+            
+            <div class="historical-context">
+                <div class="context-card">
+                    <h3><i class="fas fa-fort"></i> Siege Warfare Evolution</h3>
+                    <p>The 18th century saw the peak of Vauban-style siegecraft, with complex fortifications requiring specialized artillery to reduce. Depression carriages allowed besiegers to place batteries on commanding heights while maintaining effective plunging fire against fortification walls.</p>
+                </div>
+                
+                <div class="context-card">
+                    <h3><i class="fas fa-industry"></i> Industrial Revolution</h3>
+                    <p>Artillery development accelerated with advances in metallurgy, precision manufacturing, and engineering principles. Koehler's design reflects the application of mechanical principles to solve specific tactical problems.</p>
+                </div>
+                
+                <div class="context-card">
+                    <h3><i class="fas fa-book"></i> Archival Research Value</h3>
+                    <p>Primary sources like Koehler's letter provide invaluable insight into the material culture of warfare. They reveal not just what technologies existed, but how they were understood, described, and valued by contemporaries.</p>
+                </div>
+            </div>
+            
+            <div class="quote">
+                "I should be glad to have some conversation with you on this subject and others of the same nature, I wish you all possible success, in your publication on confident it will be an accurate and impartial one."
+                <div class="quote-source">- Koehler's closing remarks, highlighting the importance of accurate historical documentation</div>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+                <h3>Interpreting Historical Technology</h3>
+                <p>Examining artifacts like the depression carriage requires considering multiple perspectives: the engineer's design intent, the gunner's practical experience, the tactician's strategic application, and the historian's contextual analysis. Each layer reveals different aspects of how technology shaped and was shaped by the historical moment.</p>
+                
+                <p>Koehler's detailed performance claims—verified by officers' reports—provide rare quantitative data about 18th-century artillery effectiveness, making this document particularly valuable for military historians.</p>
+            </div>
         </section>
     </div>
+    
+    <footer>
+        <p>Revolutionary Artillery: Koehler's Depression Carriage</p>
+        <p>A Public History Project | Based on Archival Research | 18th Century Military Technology</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #d4a76a;">This educational resource demonstrates how archival materials can be transformed into engaging public history presentations.</p>
+    </footer>
 
     <script>
-        const slider = document.getElementById('angle-slider');
-        const cannon = document.getElementById('cannon');
-        const angleValueSpan = document.getElementById('angle-value');
-        const angleTypeSpan = document.getElementById('angle-type');
-        const carriage = document.getElementById('carriage');
-        const cannonDisplay = document.getElementById('cannon-display');
-        const fireBall = document.getElementById('fire-ball');
-
-        // Initial update
-        updateCannonAngle();
-
-        slider.addEventListener('input', updateCannonAngle);
-
-        function updateCannonAngle() {
-            let angle = parseInt(slider.value);
-            // The CSS transform rotate(Xdeg) rotates clockwise for positive X.
-            // A 0 degree angle is horizontal.
-            // Elevation (upward) is a negative rotation in CSS.
-            // Depression (downward) is a positive rotation in CSS.
-            // Since the user is setting a mathematical angle, we need to invert it for CSS.
-            let cssAngle = -angle;
-
-            cannon.style.transform = `rotate(${cssAngle}deg)`;
-            angleValueSpan.textContent = Math.abs(angle);
-
-            if (angle > 0) {
-                angleTypeSpan.textContent = "° (Elevation)";
-            } else if (angle < 0) {
-                angleTypeSpan.textContent = "° (Depression)";
-            } else {
-                angleTypeSpan.textContent = "° (Point Blank)";
+        // Game variables
+        let cannonAngle = 0;
+        let shotsFired = 0;
+        let targetsHit = 0;
+        let gameActive = true;
+        let targetPosition = 50; // Percentage across target area
+        
+        // Navigation function
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+            
+            // Reset game if showing game section
+            if (sectionId === 'game') {
+                resetGame();
             }
         }
-
-        function fireCannon() {
-            // Get the current angle (positive for elevation, negative for depression)
-            const angle = parseInt(slider.value);
-            // Get the current CSS rotation for the visual arc
-            const cssAngle = -angle; 
-
-            // Initial position of the ball (tip of the cannon)
-            const cannonRect = cannon.getBoundingClientRect();
-            const displayRect = cannonDisplay.getBoundingClientRect();
+        
+        // Initialize with overview section
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('overview');
+            // Set random initial target position
+            targetPosition = 30 + Math.random() * 40;
+            document.getElementById('target').style.left = targetPosition + '%';
+        });
+        
+        // Game functions
+        function adjustCannon(degrees) {
+            if (!gameActive) return;
             
-            // Calculate the cannon's muzzle position relative to the display container
-            // Muzzle is 90px from the origin (10px spindle + 80px barrel)
-            const cannonLength = 90; 
-            const cannonX = 50 + 10; // Left offset of carriage + spindle offset
-            const cannonY = displayRect.height - 30 - 15; // Cannon's center Y
-
-            // Calculate muzzle offset based on rotation
-            const radianAngle = (angle * Math.PI) / 180;
-            const muzzleX = cannonX + cannonLength * Math.cos(radianAngle);
-            const muzzleY = cannonY - cannonLength * Math.sin(radianAngle); // Note: Y is inverted
-
-            // Set the starting position of the fireball
-            fireBall.style.left = `${muzzleX}px`;
-            fireBall.style.top = `${muzzleY}px`;
-            fireBall.style.display = 'block';
-
-            // Animation properties
-            const duration = 1500; // ms
-            const steps = 60;
-            const interval = duration / steps;
-            let currentStep = 0;
-
-            // Simple trajectory simulation
-            const startX = muzzleX;
-            const startY = muzzleY;
-            const velocity = 8; // Arbitrary speed
-            const gravity = 0.2; // Arbitrary gravity
-
-            let vx = velocity * Math.cos(radianAngle);
-            let vy = -velocity * Math.sin(radianAngle); // -sin because positive Y is down
-
-            const intervalId = setInterval(() => {
-                // Update position
-                let time = currentStep / 5; // Scale time for visual effect
-                let newX = startX + vx * time;
-                let newY = startY + vy * time + 0.5 * gravity * time * time;
-
-                fireBall.style.left = `${newX}px`;
-                fireBall.style.top = `${newY}px`;
-
-                currentStep++;
+            // Update angle with limits
+            cannonAngle += degrees;
+            
+            // Limit angle based on historical specs
+            if (cannonAngle > 48) cannonAngle = 48; // Max elevation per document
+            if (cannonAngle < -70) cannonAngle = -70; // Max depression per document
+            
+            // Update cannon visual
+            document.getElementById('cannon').style.transform = `rotate(${cannonAngle}deg)`;
+            document.getElementById('angle-value').textContent = `${cannonAngle}°`;
+            
+            // Update message
+            let message = "";
+            if (cannonAngle < 0) {
+                message = `Depression angle: ${-cannonAngle}° (Historical max: 70°)`;
+            } else if (cannonAngle > 0) {
+                message = `Elevation angle: ${cannonAngle}° (Historical max: 48°)`;
+            } else {
+                message = "Point blank (0° elevation)";
+            }
+            document.getElementById('game-message').textContent = message;
+        }
+        
+        function fireCannon() {
+            if (!gameActive) return;
+            
+            shotsFired++;
+            document.getElementById('shots-value').textContent = shotsFired;
+            
+            // Calculate hit based on angle
+            // Simplified ballistics: extreme angles are harder to aim
+            const angleDifficulty = Math.abs(cannonAngle) > 40 ? 0.7 : 1.0;
+            const hitChance = 0.7 * angleDifficulty;
+            
+            // Add some randomness
+            const isHit = Math.random() < hitChance;
+            
+            // Visual effects
+            createShotTrail(isHit);
+            
+            if (isHit) {
+                targetsHit++;
+                document.getElementById('hits-value').textContent = targetsHit;
+                document.getElementById('game-message').textContent = `Direct hit! The depression carriage shows its accuracy.`;
+                createHitEffect();
+            } else {
+                document.getElementById('game-message').textContent = `Miss! Adjust your angle and try again.`;
+            }
+            
+            // Update accuracy
+            const accuracy = shotsFired > 0 ? Math.round((targetsHit / shotsFired) * 100) : 0;
+            document.getElementById('accuracy-value').textContent = `${accuracy}%`;
+            
+            // Move target for next shot
+            setTimeout(() => {
+                targetPosition = 30 + Math.random() * 40;
+                document.getElementById('target').style.left = targetPosition + '%';
+            }, 1000);
+        }
+        
+        function createShotTrail(isHit) {
+            const cannon = document.getElementById('cannon');
+            const target = document.getElementById('target');
+            
+            // Create trail element
+            const trail = document.createElement('div');
+            trail.className = 'shot-trail';
+            
+            // Position at cannon muzzle
+            const cannonRect = cannon.getBoundingClientRect();
+            const cannonCenterX = cannonRect.left + cannonRect.width;
+            const cannonCenterY = cannonRect.top + cannonRect.height / 2;
+            
+            // Calculate angle in radians
+            const angleRad = cannonAngle * Math.PI / 180;
+            
+            // Position trail
+            trail.style.left = `${cannonCenterX}px`;
+            trail.style.top = `${cannonCenterY}px`;
+            document.body.appendChild(trail);
+            
+            // Animate trail
+            setTimeout(() => {
+                trail.style.opacity = '1';
+                trail.style.transition = 'all 1s cubic-bezier(0.1, 0.7, 0.1, 1)';
                 
-                // End animation
-                if (currentStep > steps || newY > displayRect.height) {
-                    clearInterval(intervalId);
-                    fireBall.style.display = 'none';
-                    if (newY > displayRect.height) {
-                        // Reset if it hits the ground
-                        setTimeout(() => fireBall.style.display = 'none', 500); 
-                    }
+                // Calculate end position based on hit/miss
+                let endX, endY;
+                if (isHit) {
+                    const targetRect = target.getBoundingClientRect();
+                    endX = targetRect.left + targetRect.width / 2;
+                    endY = targetRect.top + targetRect.height / 2;
+                } else {
+                    // Miss - calculate based on angle with some randomness
+                    const missDistance = 300 + Math.random() * 200;
+                    endX = cannonCenterX + missDistance * Math.cos(angleRad);
+                    endY = cannonCenterY + missDistance * Math.sin(angleRad);
                 }
-            }, interval);
+                
+                trail.style.left = `${endX}px`;
+                trail.style.top = `${endY}px`;
+                
+                // Remove trail after animation
+                setTimeout(() => {
+                    trail.remove();
+                }, 1000);
+            }, 10);
+        }
+        
+        function createHitEffect() {
+            const target = document.getElementById('target');
+            const targetRect = target.getBoundingClientRect();
+            
+            const effect = document.createElement('div');
+            effect.className = 'hit-effect';
+            effect.style.left = `${targetRect.left - 10}px`;
+            effect.style.top = `${targetRect.top - 10}px`;
+            document.body.appendChild(effect);
+            
+            // Animate explosion effect
+            setTimeout(() => {
+                effect.style.opacity = '0.7';
+                effect.style.transition = 'all 0.5s';
+                effect.style.transform = 'scale(1)';
+                
+                setTimeout(() => {
+                    effect.style.opacity = '0';
+                    effect.style.transform = 'scale(1.5)';
+                    
+                    setTimeout(() => {
+                        effect.remove();
+                    }, 500);
+                }, 300);
+            }, 10);
+        }
+        
+        function resetGame() {
+            cannonAngle = 0;
+            shotsFired = 0;
+            targetsHit = 0;
+            gameActive = true;
+            
+            document.getElementById('cannon').style.transform = `rotate(0deg)`;
+            document.getElementById('angle-value').textContent = `0°`;
+            document.getElementById('shots-value').textContent = `0`;
+            document.getElementById('hits-value').textContent = `0`;
+            document.getElementById('accuracy-value').textContent = `0%`;
+            document.getElementById('game-message').textContent = `Adjust the angle and fire! Remember: Depression up to 70°, elevation up to 48°.`;
+            
+            // Reset target position
+            targetPosition = 30 + Math.random() * 40;
+            document.getElementById('target').style.left = targetPosition + '%';
         }
     </script>
 </body>
