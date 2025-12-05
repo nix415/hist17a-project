@@ -100,6 +100,7 @@
             border-radius: 8px;
             max-width: 600px;
             margin: 20px auto;
+            position: relative;
         }
 
         #game-box h2 {
@@ -107,53 +108,106 @@
             border-color: var(--color-secondary);
         }
 
-        /* --- New Cannon Visuals --- */
-        #cannon-display-area {
+        .cannon-display {
             position: relative;
-            width: 90%;
-            height: 120px; /* Space for cannon drawing */
-            margin: 20px auto 40px;
-            border-bottom: 5px solid #666; /* Ground line */
-            background-color: #333; /* Background for the scene */
-            overflow: hidden;
+            height: 150px;
+            width: 100%;
+            margin: 20px 0 50px 0;
+            border-bottom: 3px solid #7f8c8d; /* Ground */
         }
 
-        #cannon-carriage {
+        .cannon-base {
             position: absolute;
-            bottom: 5px; /* Above the ground line */
-            left: 10%;
-            width: 80px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
             height: 40px;
-            background-color: #8B4513; /* Brown wood/metal */
-            border: 2px solid #555;
-            z-index: 2;
+            background-color: #95a5a6; /* Carriage */
+            border-radius: 5px 5px 0 0;
         }
 
-        #cannon-barrel {
+        .cannon-barrel {
             position: absolute;
-            bottom: 45px; /* Resting on carriage */
-            left: 10%;
+            bottom: 30px;
+            left: 50%;
+            transform-origin: 0% 100%; /* Pivot point at the base */
             width: 150px;
-            height: 15px;
-            background-color: #555; /* Dark metal */
-            border-radius: 5px;
-            /* Pivot point 15px from the left edge of the barrel, 50% vertically */
-            transform-origin: 15px 50%; 
-            transition: transform 0.2s ease-out, background-color 0.1s; /* Smooth angle/flash change */
-            z-index: 3;
+            height: 30px;
+            background-color: #34495e; /* Barrel */
+            border-radius: 15px;
+            transition: transform 0.1s ease-out; /* Smooth angle change */
         }
-        
+
+        .cannon-muzzle {
+            position: absolute;
+            top: 0;
+            right: -10px;
+            width: 20px;
+            height: 30px;
+            background-color: #34495e;
+            border-radius: 0 15px 15px 0;
+        }
+
+        /* Projectile for Firing Animation */
+        @keyframes fire-animation {
+            0% { 
+                opacity: 1; 
+                transform: translate(0, 0); 
+            }
+            100% { 
+                opacity: 0; 
+                transform: translate(300px, -500px); 
+            }
+        }
+
+        .projectile {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+            opacity: 0;
+            z-index: 10;
+        }
+
+
+        /* Controls */
         .controls {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
-            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         #angle-slider {
             width: 80%;
+            margin: 15px 0;
+            -webkit-appearance: none;
+            height: 8px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        #angle-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--color-accent);
             cursor: pointer;
+            border-radius: 50%;
+        }
+
+        #angle-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: var(--color-accent);
+            cursor: pointer;
+            border-radius: 50%;
         }
 
         #fire-button {
@@ -174,16 +228,7 @@
             margin-top: 20px;
             font-size: 1.1em;
             min-height: 40px;
-        }
-        /* End New Cannon Visuals */
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background-color: var(--color-primary);
-            color: var(--color-secondary);
-            font-size: 0.9em;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -224,20 +269,23 @@
             
             <div id="game-box">
                 <h3>Mini-Game: Master the Angle of Resistance</h3>
-                <p>Imperial power demands **precision**. Aim for a **5° depression** to hit the traverse from 1400 yards.</p>
+                <p>Imperial power demands **precision**. To match the reported accuracy of this unique cannon, aim a shot from 1400 yards to hit a traverse. The perfect angle is a low **5° depression**.</p>
                 
-                <div id="cannon-display-area">
-                    <div id="cannon-barrel" style="transform: rotate(0deg);"></div>
-                    <div id="cannon-carriage"></div>
+                <div class="cannon-display">
+                    <div class="cannon-base"></div>
+                    <div class="cannon-barrel" id="cannon-barrel">
+                        <div class="cannon-muzzle"></div>
+                    </div>
+                    <div class="projectile" id="projectile"></div>
                 </div>
 
                 <div class="controls">
-                    <label for="angle-slider">Depression Angle: <span id="current-angle">0</span>°</label>
-                    <input type="range" id="angle-slider" min="0" max="70" value="0">
-                    <button id="fire-button">Fire!</button>
+                    <label for="angle-slider">Depression Angle: <span id="angle-value">5</span>°</label>
+                    <input type="range" id="angle-slider" min="0" max="70" value="5">
+                    <button id="fire-button">Fire Cannon!</button>
                 </div>
                 
-                <p id="game-message">Aim for 5° for a perfect hit. Too high or too low will miss.</p>
+                <p id="game-message">Aim for 5° to match the perfect, repeatable accuracy.</p>
             </div>
         </section>
 
@@ -251,45 +299,95 @@
         document.addEventListener('DOMContentLoaded', () => {
             const fireButton = document.getElementById('fire-button');
             const angleSlider = document.getElementById('angle-slider');
-            const currentAngleSpan = document.getElementById('current-angle');
-            const cannonBarrel = document.getElementById('cannon-barrel');
+            const angleValueSpan = document.getElementById('angle-value');
             const messageArea = document.getElementById('game-message');
+            const cannonBarrel = document.getElementById('cannon-barrel');
+            const projectile = document.getElementById('projectile');
+
             const CORRECT_ANGLE = 5; // Target angle
 
-            // 1. Update cannon angle and display when slider moves
+            // Function to update the cannon angle display
+            function updateCannonAngle(angle) {
+                // For a cannon in the game, depression is a negative rotation visually.
+                // We pivot from the center-bottom, so we rotate by the angle value.
+                cannonBarrel.style.transform = `translateX(-50%) rotate(${angle}deg)`;
+                angleValueSpan.textContent = angle;
+            }
+
+            // Initial setup
+            updateCannonAngle(parseInt(angleSlider.value));
+
+            // Event listener for slider input
             angleSlider.addEventListener('input', () => {
-                const inputAngle = parseInt(angleSlider.value);
-                currentAngleSpan.textContent = inputAngle;
-                // Rotate the barrel. Depression (downwards) is a positive rotation in CSS.
-                // The angle is applied directly to the CSS transform.
-                cannonBarrel.style.transform = `rotate(${inputAngle}deg)`;
+                const angle = parseInt(angleSlider.value);
+                updateCannonAngle(angle);
             });
 
-            // 2. Firing Logic
+            // Event listener for fire button
             fireButton.addEventListener('click', () => {
                 const inputAngle = parseInt(angleSlider.value);
 
-                // Visual Firing Effect: Barrel flashes red momentarily
-                cannonBarrel.style.backgroundColor = 'var(--color-accent)'; 
+                // 1. Fire Animation
+                // Reset projectile position and opacity
+                projectile.style.opacity = 0;
+                projectile.style.animation = 'none';
                 
-                setTimeout(() => {
-                    cannonBarrel.style.backgroundColor = '#555'; // Return to original dark metal
-                }, 150);
+                // Get the position of the cannon's muzzle to start the projectile
+                const barrelRect = cannonBarrel.getBoundingClientRect();
+                const gameBoxRect = document.getElementById('game-box').getBoundingClientRect();
+                
+                // Calculate starting position relative to the game box
+                // We'll approximate the muzzle tip for a simple cartoon look
+                const startX = barrelRect.width - 10; // Approx end of barrel
+                const startY = barrelRect.top - gameBoxRect.top + barrelRect.height / 2;
 
-                // Game logic
-                // Clear previous message
+                // Move the projectile to the cannon's position
+                // Note: The cannon's position is complex due to rotation, so we'll simplify 
+                // the start point near the end of the barrel element.
+                projectile.style.left = `calc(50% + ${Math.cos((180 - inputAngle) * (Math.PI / 180)) * 150}px)`;
+                projectile.style.bottom = `calc(30px - ${Math.sin((180 - inputAngle) * (Math.PI / 180)) * 150}px)`;
+                
+                // Create a dynamic keyframe style sheet to ensure the projectile follows the barrel's angle roughly
+                const animationName = 'fire-animation-' + inputAngle;
+                const styleSheet = document.createElement('style');
+                
+                // The angle input is "depression," so we rotate up/out by (90 - angle) for simple cartoon path
+                const angleRad = (90 - inputAngle) * (Math.PI / 180); 
+                const endX = Math.cos(angleRad) * 400; // Arbitrary distance
+                const endY = Math.sin(angleRad) * 400; // Arbitrary distance
+                
+                styleSheet.innerHTML = `
+                    @keyframes ${animationName} {
+                        0% { 
+                            opacity: 1; 
+                            transform: translate(0, 0) scale(1); 
+                        }
+                        100% { 
+                            opacity: 0; 
+                            transform: translate(${endX}px, -${endY}px) scale(0.5); 
+                        }
+                    }
+                `;
+                document.head.appendChild(styleSheet);
+
+
+                // Start the animation
+                projectile.style.animation = `${animationName} 1.5s ease-out forwards`;
+
+
+                // 2. Game Logic
                 messageArea.style.color = 'var(--color-secondary)';
                 
                 if (inputAngle === CORRECT_ANGLE) {
-                    messageArea.innerHTML = '<strong>PERFECT HIT!</strong> You have achieved the incredible precision of the depressing carriage gun, hitting the traverse from 1400 yards!';
+                    messageArea.innerHTML = '🎯 **PERFECT HIT!** You have achieved the incredible precision of the depressing carriage gun, hitting the traverse from 1400 yards!';
                     messageArea.style.color = 'lime';
                 } else if (inputAngle < CORRECT_ANGLE) {
                     const difference = CORRECT_ANGLE - inputAngle;
-                    messageArea.innerHTML = `<strong>MISSED!</strong> Your shot was too low by ${difference}°. Try a greater angle of depression.`;
+                    messageArea.innerHTML = `❌ **MISSED!** Your shot was too low by ${difference}° (too far down). Try a smaller angle of depression.`;
                     messageArea.style.color = 'orange';
                 } else {
                     const difference = inputAngle - CORRECT_ANGLE;
-                    messageArea.innerHTML = `<strong>MISSED!</strong> Your shot was too high by ${difference}°. Try a lesser angle of depression.`;
+                    messageArea.innerHTML = `❌ **MISSED!** Your shot was too high by ${difference}° (too far up). Try a greater angle of depression.`;
                     messageArea.style.color = 'orange';
                 }
             });
