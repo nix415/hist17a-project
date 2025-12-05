@@ -3,113 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HIST 17A: North America Before 1800 | Project Hub</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>The Recoiling Empire: A Public History Exhibit</title>
     <style>
+        :root {
+            --primary-color: #A30000; /* Deep Red for Empire/Recoil */
+            --secondary-color: #2F4F4F; /* Dark Slate Gray for Archive/Resistance */
+            --light-bg: #F0F0F0;
+            --dark-text: #1C1C1C;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f8f8;
-            color: #333;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
         }
-        .header-bg {
-            background-color: #4a5568; /* Dark gray for a professional look */
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .accent-text {
-            color: #b73225; /* A deep historical red accent */
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
         }
-        .card-shadow {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+
+        nav {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
         }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #4682B4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        section {
+            padding: 40px 0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        section h2 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+            font-size: 2em;
+        }
+
+        .exhibit-card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- Mini-Game Styling --- */
+        #game-interface {
+            background-color: #e8e8e8;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #game-controls {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .control-group {
+            margin: 10px;
+            padding: 15px;
+            border: 1px dashed var(--secondary-color);
+            border-radius: 6px;
+        }
+        
+        button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.1s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #4682B4;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        #game-message {
+            margin-top: 25px;
+            min-height: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        #cannon-visual {
+            font-size: 4em;
+            margin: 30px 0;
+            transition: transform 0.5s ease-in-out;
+            display: inline-block;
+            color: #444;
+        }
+
+        /* Animation class for 'recoil' */
+        .recoil-animation {
+            animation: recoil-effect 0.3s ease-in-out 1;
+        }
+
+        @keyframes recoil-effect {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-15px); }
+            100% { transform: translateX(0); }
+        }
+
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- Header & Course Title -->
-    <header class="header-bg py-8 shadow-lg">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-white text-sm uppercase tracking-widest font-semibold mb-2">History 17A</p>
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-white">
-                North America Before 1800
-            </h1>
-            <p class="text-gray-300 mt-2">Colonial Encounters, Captivity, and Conflict</p>
-        </div>
+    <header>
+        <h1>THE RECOILING EMPIRE</h1>
+        <p>Anti-Colonial Action and the Limits of Imperial Power</p>
     </header>
 
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#revolt">Exhibit 1: Revolt</a>
+        <a href="#diplomacy">Exhibit 2: Diplomacy</a>
+        <a href="#freedom">Exhibit 3: Freedom</a>
+        <a href="#game">Koehler's Kinematics (Mini-Game)</a>
+        <a href="#caption">Museum Label (500-Word Essay)</a>
+    </nav>
 
-        <!-- Course Material Summary (Based on Transcript) -->
-        <section id="summary" class="mb-16">
-            <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2 border-accent-text">Course Focus: Key Themes</h2>
-            
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- Theme 1: Colonial Scope -->
-                <div class="bg-white p-6 rounded-lg card-shadow">
-                    <h3 class="text-xl font-semibold accent-text mb-3">Expansive Colonial History</h3>
-                    <p class="text-gray-600">The course focuses on North America before 1800, shifting emphasis from solely American history to include the complex histories of <span class="font-bold">French, British, and Spanish colonial powers</span> and the processes of dispossession impacting Indigenous peoples.</p>
-                </div>
+    <div class="container">
+        
+        <section id="home">
+            <h2>The Historical Paradox</h2>
+            <p>The 1785 letter describing the Koehler Depressing Carriage Gun represents the apex of British military-technological prowess—a machine of precise, repeatable destruction. Yet, the history of North America before 1800 demonstrates a profound historical paradox: every attempt to preserve the empire through increased discipline and control ultimately produced its own undoing. This exhibit contrasts the cold mechanics of imperial power with the dynamic, enduring forces of anti-colonial resistance.</p>
+        </section>
 
-                <!-- Theme 2: Indigenous Captivity -->
-                <div class="bg-white p-6 rounded-lg card-shadow">
-                    <h3 class="text-xl font-semibold accent-text mb-3">Indigenous Captivity and Exchange</h3>
-                    <p class="text-gray-600">A key theme is the nature of indigenous captivity, which is characterized as <span class="font-bold">non-commercial</span>. Captives were exchanged to seal alliances, end conflicts, and serve as peace offerings, reinforcing an "economy of flesh and kinship" (Rushworth) and interdependency among nations.</p>
-                </div>
+        <section id="revolt">
+            <h2>Exhibit 1: The Precision of Revolt (Pueblo Revolt, 1680)</h2>
+            <div class="exhibit-card">
+                <p>The ability of the cannon to hit a single traverse 28 out of 30 times from 1400 yards highlights its devastating accuracy. But how effective is this precision against unified, armed rebellion? The Pueblo Revolt proves that organized Indigenous action could entirely expel a colonial power, rendering the technology of control inert. Revolt, not artillery, defined the limits of Spanish imperial aspiration.</p>
             </div>
         </section>
 
-        <!-- Assignment Instructions -->
-        <section id="assignment" class="bg-white p-8 rounded-lg card-shadow">
-            <h2 class="text-3xl font-bold mb-6 pb-2 border-b-2 border-accent-text">The Graphic History Project (Week 10)</h2>
+        <section id="diplomacy">
+            <h2>Exhibit 2: The Diplomacy of Defense (Great Peace of Montreal, 1701)</h2>
+            <div class="exhibit-card">
+                <p>The Koehler gun's innovation was the ability to return to the "exact same direction, and depression it did before firing," ensuring mechanical repeatability. In contrast, the Indigenous nations at the Great Peace of Montreal achieved a non-mechanical, *enduring* repeatability—peace and autonomy through complex, strategic diplomacy that outlasted the effectiveness of French and British cannons. Diplomacy was the superior technology for maintaining sovereignty.</p>
+            </div>
+        </section>
+        
+        <section id="freedom">
+            <h2>Exhibit 3: The Angle of Freedom (First Maroon War, 1739)</h2>
+            <div class="exhibit-card">
+                <p>The cannon's unique ability to fire at a **70° depression** was designed for tactical advantage, such as shooting from high-ground positions or firing upon enemies below a precipice. Ironically, the Maroons in Jamaica used the high ground itself—the Cockpit Country—to establish a refuge that successfully resisted British military campaigns. Their "acts of resistance" forced the British to recognize the limits of their control and grant them treaty freedom.</p>
+            </div>
+        </section>
 
-            <div class="space-y-6">
-                <!-- Goal -->
-                <div>
-                    <h3 class="text-2xl font-semibold mb-2 accent-text">The Task & Goal</h3>
-                    <p>Working with no more than one classmate (max group size of two), you will select a particular item or source of interest from the <span class="font-bold">Archives and Special Collections</span> (in person or online databases).</p>
-                    <p class="mt-2">Your goal is to <span class="font-bold">transform your archival find into a graphic representation</span> that serves as an engaging and accessible piece of public history.</p>
+        <section id="game">
+            <h2>Exhibit 4: Koehler's Kinematics — The 1785 Accuracy Challenge</h2>
+            <p>Explore the unique mechanics of the Koehler cannon—the **Upper Bed B Slides** while the **Under Carriage D does not move**. The target is a tiny traverse at 1400 yards. You must correctly execute the three steps to hit the target, demonstrating the gun's famed precision and efficiency.</p>
+
+            <div id="game-interface">
+                <div id="cannon-visual">◒</div>
+                <div id="game-controls">
+                    <div class="control-group">
+                        <h3>Step 1: Set Angle</h3>
+                        <label for="angle">Set Depression Angle (0° to 70°):</label>
+                        <input type="number" id="angle" min="0" max="70" value="15">°
+                        <p id="angle-status" style="font-weight: normal; color: #666; font-size: 0.9em;">(Normal guns stop at 15° depression)</p>
+                    </div>
+
+                    <div class="control-group">
+                        <h3>Step 2: Load Gun</h3>
+                        <p>Simulate turning the gun on the spindle for loading under cover of the merton.</p>
+                        <button id="load-btn" onclick="loadGun()" disabled>Load (Requires Angle)</button>
+                        <p id="load-status" style="font-weight: normal; color: #666; font-size: 0.9em;">Status: Unloaded</p>
+                    </div>
+
+                    <div class="control-group">
+                        <h3>Step 3: Fire & Recoil</h3>
+                        <p>Witness the unique recoil where the gun returns automatically to the correct angle.</p>
+                        <button id="fire-btn" onclick="fireCannon()" disabled>Fire</button>
+                    </div>
                 </div>
+                
+                <div id="game-message">Start by setting the unique depression angle (70° is the max capability).</div>
+                
+            </div>
+        </section>
 
-                <!-- Deliverables & Format -->
-                <div class="pt-4 border-t border-gray-200">
-                    <h3 class="text-2xl font-semibold mb-2 accent-text">Deliverables & Requirements</h3>
+        <section id="caption">
+            <h2>Museum Label (500-Word Essay Placeholder)</h2>
+            <div class="exhibit-card" style="height: 300px; background-color: #ffffff;">
+                <p style="font-style: italic;">[This is where your 500-word "caption" essay will go. It will explain the historical significance of the Koehler cannon document and how the three exhibits interpret the lecture's theme of anti-colonial action (Revolt, Diplomacy, and Freedom) as the definitive "recoil" against imperial control.]</p>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // --- Mini-Game JavaScript Logic ---
+        const TARGET_ANGLE = 70; // Highlighting the unique 70° depression capability
+        let step = 1;
+        const cannonVisual = document.getElementById('cannon-visual');
+        const angleInput = document.getElementById('angle');
+        const loadBtn = document.getElementById('load-btn');
+        const fireBtn = document.getElementById('fire-btn');
+        const gameMessage = document.getElementById('game-message');
+        const angleStatus = document.getElementById('angle-status');
+        const loadStatus = document.getElementById('load-status');
+
+        angleInput.addEventListener('input', () => {
+            if (step === 1) {
+                const angle = parseInt(angleInput.value);
+                
+                // Update button and message based on the input
+                if (angle === TARGET_ANGLE) {
+                    gameMessage.innerHTML = `Angle set to **${angle}° Depression!** This highlights the gun's unique capability (max 70°). Proceed to Step 2.`;
+                    angleStatus.innerHTML = "Status: Target Angle Set";
+                    loadBtn.disabled = false;
+                    fireBtn.disabled = true;
+                } else if (angle > 70) {
+                    gameMessage.innerHTML = `Error: Angle cannot exceed 70°.`;
+                    angleStatus.innerHTML = "(Normal guns stop at 15° depression)";
+                    loadBtn.disabled = true;
+                } else {
+                    gameMessage.innerHTML = `Angle set to ${angle}° (Try for the unique max capability of 70°).`;
+                    angleStatus.innerHTML = "(Normal guns stop at 15° depression)";
+                    loadBtn.disabled = true;
+                }
+            }
+        });
+
+        function loadGun() {
+            if (step === 1 && parseInt(angleInput.value) === TARGET_ANGLE) {
+                // Step 2: Simulate turning gun on spindle
+                step = 2;
+                gameMessage.innerHTML = 'Gun turned on the spindle. **Loader is under cover!** (Difficulty of ramming shot upwards is avoided). Proceed to Step 3.';
+                loadStatus.innerHTML = "Status: Loaded & Covered";
+                loadBtn.disabled = true;
+                fireBtn.disabled = false;
+            }
+        }
+
+        function fireCannon() {
+            if (step === 2) {
+                step = 3;
+                fireBtn.disabled = true;
+                
+                // Visually simulate the unique recoil mechanism
+                cannonVisual.classList.add('recoil-animation');
+                
+                // Game results after recoil animation
+                setTimeout(() => {
+                    cannonVisual.classList.remove('recoil-animation');
                     
-                    <ul class="list-disc list-inside text-gray-700 ml-4 space-y-2">
-                        <li>
-                            <span class="font-bold">Graphic Representation:</span> Create a graphic history of your choice (e.g., coloring book, placards, comic spread, T-shirts, scrapbook, original art).
-                        </li>
-                        <li>
-                            <span class="font-bold">500-Word "Caption" Essay:</span> Submit a museum-label-style essay explaining the project's historical significance. This must address:
-                            <ul class="list-disc list-inside text-gray-600 ml-6 mt-1">
-                                <li>How historians have interpreted this subject to date.</li>
-                                <li>How your interpretation captures the significance of the event/topic, grounded in the archival evidence.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                    // The core historical point of the game is demonstrating the recoil effect
+                    const correctRecoilMessage = `**SUCCESS!** The Upper Bed B slid, but the Under Carriage D did not move. The gun returned to the exact same direction and depression! This precision is how Capt. Cuppege hit the Traverse 28/30 times!`;
+                    
+                    gameMessage.innerHTML = correctRecoilMessage;
+                    
+                    // Reset game
+                    setTimeout(() => {
+                        step = 1;
+                        angleInput.value = 15;
+                        loadBtn.disabled = true;
+                        fireBtn.disabled = true;
+                        angleStatus.innerHTML = "(Normal guns stop at 15° depression)";
+                        loadStatus.innerHTML = "Status: Unloaded";
+                        gameMessage.innerHTML = 'Reset. Try to hit the target again by setting the unique depression angle (70°).';
+                    }, 5000);
 
-                <!-- Key Dates -->
-                <div class="pt-4 border-t border-gray-200">
-                    <h3 class="text-2xl font-semibold mb-2 accent-text">Key Preparatory Weeks</h3>
-                    <p><span class="font-bold">Week 7:</span> Library Workshop and History Hunt (Practice finding digital sources).</p>
-                    <p><span class="font-bold">Week 8:</span> Visit to UCSB’s Archives and Special Collections (Examine primary materials firsthand).</p>
-                    <p><span class="font-bold">Week 10:</span> Public History Micro-Festival (Present your project).</p>
-                </div>
+                }, 400); // Animation time
+            }
+        }
 
-                <!-- Grading -->
-                <div class="pt-4 border-t border-gray-200">
-                    <p class="text-xl font-bold accent-text">Project Weight: 20 Points Toward Final Grade</p>
-                </div>
-            </div>
-        </section>
+        // Initialize state
+        window.onload = () => {
+            angleInput.value = 15;
+        };
 
-    </main>
+    </script>
 
-    <!-- Footer -->
-    <footer class="bg-gray-200 py-4 mt-12">
-        <div class="max-w-4xl mx-auto px-4 text-center text-sm text-gray-500">
-            <p>&copy; 202X HIST 17A Course Material. All Rights Reserved.</p>
-        </div>
-    </footer>
 </body>
 </html>
